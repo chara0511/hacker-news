@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import * as React from 'react'
+
 import logo from './logo.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [count, setCount] = React.useState(0)
 
   return (
     <div className="App">

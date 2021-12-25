@@ -25,7 +25,6 @@ const globalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scrollbar-width: thin;
-    /* scrollbar-color: var(--curious-blue) var(--big-stone); */
   }
   
   *,

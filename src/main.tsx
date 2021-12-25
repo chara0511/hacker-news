@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'styled-components'
 
+import '@fontsource/baskervville'
+import '@fontsource/roboto'
+
 import App from './App'
 import GlobalStyles from './globalStyles'
 import theme from './theme'

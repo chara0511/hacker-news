@@ -17,4 +17,7 @@ export const StyledFlex = styled.div<StyledFlexProps>`
   background-color: ${({ backgroundColor, smoked }) =>
     smoked === true ? 'var( --whiteSmoke)' : backgroundColor};
   height: ${({ height }) => height};
+  margin: ${({ margin }) => margin};
+  max-width: ${({ maxWidth }) => maxWidth};
+  width: ${({ width }) => width};
 `

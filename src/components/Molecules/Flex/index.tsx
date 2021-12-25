@@ -16,8 +16,11 @@ const Flex = ({
   flexWrap,
   height,
   justifyContent,
+  margin,
+  maxWidth,
   padding,
   rowGap,
+  width,
   smoked
 }: FlexProps) => {
   return (
@@ -29,8 +32,11 @@ const Flex = ({
       flexWrap={flexWrap}
       height={height}
       justifyContent={justifyContent}
+      margin={margin}
+      maxWidth={maxWidth}
       padding={padding}
       rowGap={rowGap}
+      width={width}
       smoked={smoked}
     >
       {children}

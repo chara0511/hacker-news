@@ -10,12 +10,13 @@
     "lint:js": "eslint . --ext .js,.jsx",
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:ts": "eslint . --ext .ts,.tsx",
-    "lint:ts:fix": "npm run lint:ts -- --fix"
+    "lint:ts:fix": "npm run lint:ts -- --fix",
+    "release": "standard-version"
   },
   "dependencies": {
-    "@stylelint/postcss-css-in-js": "^0.37.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
     "styled-components": "^5.3.3",
     "stylelint": "^14.2.0",
     "stylelint-config-recommended": "^6.0.0",
@@ -24,8 +25,10 @@
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
+    "@stylelint/postcss-css-in-js": "^0.37.2",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
+    "@types/styled-components": "^5.1.19",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
     "@vitejs/plugin-react": "^1.0.7",
@@ -37,16 +40,18 @@
     "eslint-plugin-react": "^7.28.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.4",
+    "postcss-syntax": "^0.36.2",
+    "standard-version": "^9.3.2",
     "typescript": "^4.4.4",
     "vite": "^2.7.2"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "src/**/*.{js,jsx,ts,jsx}": [
-      "eslint . --fix"
+      "eslint \"./**/*.{js,jsx,ts,tsx}\" --fix"
     ],
-    "src/**/*.tsx": [
-      "stylelint --syntax scss --fix"
+    "./src/**/*.tsx": [
+      "stylelint --fix \"./src/**/*.tsx\" --custom-syntax @stylelint/postcss-css-in-js"
     ]
   },
   "husky": {

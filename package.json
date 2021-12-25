@@ -21,6 +21,8 @@
     "stylelint-config-styled-components": "^0.1.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
@@ -40,12 +42,10 @@
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "src/**/*.{js,jsx,ts,jsx}": [
-      "eslint . --fix",
-      "git add"
+      "eslint . --fix"
     ],
     "src/**/*.tsx": [
-      "stylelint --syntax scss --fix",
-      "git add"
+      "stylelint --syntax scss --fix"
     ]
   },
   "husky": {

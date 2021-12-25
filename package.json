@@ -4,11 +4,21 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "lint:css": "stylelint ./src/**/*.tsx",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js:fix": "npm run lint:js -- --fix",
+    "lint:ts": "eslint . --ext .ts,.tsx",
+    "lint:ts:fix": "npm run lint:ts -- --fix"
   },
   "dependencies": {
+    "@stylelint/postcss-css-in-js": "^0.37.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "stylelint": "^14.2.0",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-styled-components": "^0.1.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
@@ -22,7 +32,25 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-react": "^7.28.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.4",
     "typescript": "^4.4.4",
     "vite": "^2.7.2"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "src/**/*.{js,jsx,ts,jsx}": [
+      "eslint . --fix",
+      "git add"
+    ],
+    "src/**/*.tsx": [
+      "stylelint --syntax scss --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

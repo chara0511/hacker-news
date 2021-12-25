@@ -44,4 +44,4 @@ const Flex = ({
   )
 }
 
-export default Flex
+export default React.memo(Flex)

@@ -1,13 +1,12 @@
 import * as React from 'react'
 
 import { Title } from '../../Atoms'
-import { Flex } from '../../Molecules'
-import { StyledHeader } from './styles'
+import { StyledHeader, StyledHeaderFlex } from './styles'
 
 const Header = () => {
   return (
     <StyledHeader>
-      <Flex
+      <StyledHeaderFlex
         justifyContent="space-between"
         alignItems="center"
         padding="44px 150px 42px 150px"
@@ -18,7 +17,7 @@ const Header = () => {
         <Title font="secondary" size="lg">
           HACKER NEWS
         </Title>
-      </Flex>
+      </StyledHeaderFlex>
     </StyledHeader>
   )
 }

@@ -16,6 +16,9 @@ export type IconName =
   | 'favoriteOutlined'
   | 'error';
 
+// Hook types
+export type Direction = 'up' | 'down'
+
 // Api types
 export interface Hit {
   is_fav: boolean;

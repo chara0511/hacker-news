@@ -1,12 +1,13 @@
 import * as React from 'react'
 
 import { Button, Skeleton } from '../../Atoms'
-import { Card, DropDown, Flex, List, Pagination } from '../../Molecules'
+import { Card, DropDown, List, Pagination } from '../../Molecules'
 import useNews from '../../../hooks/useNews'
 import useNewsState from '../../../hooks/useNewsState'
 import useNewsUpdater from '../../../hooks/useNewsUpdater'
+import useScrollDirection from '../../../hooks/useScrollDirection'
 import { defaultItems, skeletonCards, views } from '../../../utils/constants'
-import { StyledMain } from './styles'
+import { StyledFilterFlex, StyledMain } from './styles'
 
 const Main = () => {
   const { state } = useNewsState()
@@ -23,7 +24,7 @@ const Main = () => {
         type: 'GET_NEWS',
         payload: {
           ...data,
-          hits: data.hits.map((hit) => ({
+          hits: data?.hits?.map((hit) => ({
             ...hit,
             is_fav:
               state.favorites.find((fav) => hit.objectID === fav.objectID)
@@ -35,9 +36,28 @@ const Main = () => {
     }
   }, [data, state.favorites, state.view])
 
+  const scrollDirection = useScrollDirection({ initialDirection: 'up' })
+  const [scrolledToTop, setScrolledToTop] = React.useState(true)
+
+  const handleScroll = () => {
+    setScrolledToTop(window.pageYOffset < 50)
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
     <StyledMain>
-      <Flex justifyContent="center">
+      <StyledFilterFlex
+        justifyContent="center"
+        scrollDirection={scrollDirection}
+        scrolledToTop={scrolledToTop}
+      >
         {views.map((view) => (
           <Button
             key={view}
@@ -48,12 +68,14 @@ const Main = () => {
             {view}
           </Button>
         ))}
-      </Flex>
+      </StyledFilterFlex>
 
       <DropDown
         items={[{ name: 'Select your news' }, ...defaultItems]}
-        positionTopMenu="290px"
-        positionLeftMenu="150px"
+        positionTopMenu="306px"
+        positionLeftMenu="146px"
+        scrollDirection={scrollDirection}
+        scrolledToTop={scrolledToTop}
       />
 
       {state.view === 'all' && (

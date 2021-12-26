@@ -17,6 +17,7 @@ export const StyledIconButton = styled.button<IconButtonProps>`
     active ?? false ? 'var(--dodger-blue)' : 'transparent'};
   color: ${({ active }) =>
     active ?? false ? 'var(--white)' : 'var(--zambezi)'};
+  transition: var(--transition);
 
   &:disabled {
     opacity: 0.4;
@@ -33,9 +34,10 @@ export const StyledIconButton = styled.button<IconButtonProps>`
 export const StyledIconCardButton = styled(StyledIconButton)`
   border: none;
   border-radius: 50%;
+  transition: var(--transition);
 
   &:hover {
     border: none;
-    background-color: 'var(--gray-93)';
+    background-color: var(--gray-93);
   }
 `

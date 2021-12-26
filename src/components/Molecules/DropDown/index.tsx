@@ -18,7 +18,7 @@ import {
   StyledDropDownMenu,
   StyledDropDownWrapper
 } from './styles'
-import type { IconName } from '../../../types'
+import type { Direction, IconName } from '../../../types'
 
 export interface DropDownProps {
   items: Array<{
@@ -26,6 +26,8 @@ export interface DropDownProps {
   }>;
   positionTopMenu?: string;
   positionLeftMenu?: string;
+  scrollDirection?: Direction;
+  scrolledToTop?: boolean;
 }
 
 const options: BodyScrollOptions = {
@@ -35,7 +37,9 @@ const options: BodyScrollOptions = {
 const DropDown = ({
   items,
   positionTopMenu,
-  positionLeftMenu
+  positionLeftMenu,
+  scrollDirection,
+  scrolledToTop
 }: DropDownProps) => {
   const { state } = useNewsState()
   const { dispatch } = useNewsUpdater()
@@ -57,7 +61,10 @@ const DropDown = ({
   }, [open])
 
   return (
-    <StyledDropDown>
+    <StyledDropDown
+      scrollDirection={scrollDirection}
+      scrolledToTop={scrolledToTop}
+    >
       <StyledDropDownBtn
         aria-label={`search ${state.query}`}
         type="button"
@@ -81,6 +88,8 @@ const DropDown = ({
               ref={ref}
               positionTopMenu={positionTopMenu}
               positionLeftMenu={positionLeftMenu}
+              scrollDirection={scrollDirection}
+              scrolledToTop={scrolledToTop}
             >
               {items.map((item, index) => (
                 <StyledDropDownItem key={item.name}>

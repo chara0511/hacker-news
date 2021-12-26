@@ -15,6 +15,7 @@ export const StyledButton = styled.button<ButtonProps>`
   width: 100px;
   text-align: center;
   text-transform: capitalize;
+  transition: var(--transition);
 
   &:hover {
     border: 1px solid var(--dodger-blue);

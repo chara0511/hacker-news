@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-interface StyledFlexProps extends React.CSSProperties {
+export interface StyledFlexProps extends React.CSSProperties {
   smoked?: boolean;
 }
 

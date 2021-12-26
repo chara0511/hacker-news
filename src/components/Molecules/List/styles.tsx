@@ -9,4 +9,8 @@ export const StyledList = styled.ul`
   min-height: 800px;
   position: relative;
   grid-template-rows: repeat(10, 92px);
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+  }
 `

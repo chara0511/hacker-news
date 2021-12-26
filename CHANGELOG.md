@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/jcarlos0511/hacker-news/compare/v0.0.3...v0.0.4) (2021-12-26)
+
+
+### Features
+
+* Add mode responsive tablet and mobile ([d3b4a1b](https://github.com/jcarlos0511/hacker-news/commit/d3b4a1b2e53ed4afad42764c657b30c48192feeb))
+
 ### [0.0.3](https://github.com/jcarlos0511/hacker-news/compare/v0.0.1...v0.0.3) (2021-12-25)
 
 

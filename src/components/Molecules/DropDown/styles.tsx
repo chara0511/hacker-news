@@ -18,6 +18,11 @@ export const StyledDropDown = styled.div<{
   transition: var(--transition);
   width: 100%;
 
+  > button {
+    border: 1px solid var(--gray-84);
+    border-radius: ${({ theme }) => theme.borderRadius.sm};
+  }
+
   @media (max-width: 960px) {
     top: 135px;
     margin: 38px auto;
@@ -29,28 +34,23 @@ export const StyledDropDown = styled.div<{
   }
 
   @media (prefers-reduced-motion: no-preference) {
-     ${({ scrollDirection, scrolledToTop }) =>
+    ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'up' &&
       !scrolledToTop &&
       css`
         padding: 0;
         margin: 38px auto;
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
-      `
+      `}
 
-     ${({ scrollDirection, scrolledToTop }) =>
+    ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'down' &&
       !scrolledToTop &&
       css`
         padding: 0;
         margin: 38px auto;
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
-      `
-  }
-
-  > button {
-    border: 1px solid var(--gray-84);
-    border-radius: ${({ theme }) => theme.borderRadius.sm};
+      `}
   }
 `
 
@@ -98,7 +98,7 @@ export const StyledDropDownMenu = styled.ul<{
   }
 
   @media (prefers-reduced-motion: no-preference) {
-     ${(props) =>
+    ${(props) =>
       props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
@@ -112,9 +112,9 @@ export const StyledDropDownMenu = styled.ul<{
         @media (max-width: 480px) {
           top: 150px;
         }
-      `
+      `}
 
-     ${(props) =>
+    ${(props) =>
       props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`
@@ -128,7 +128,7 @@ export const StyledDropDownMenu = styled.ul<{
         @media (max-width: 480px) {
           top: 150px;
         }
-      `
+      `}
   }
 `
 

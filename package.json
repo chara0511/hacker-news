@@ -56,11 +56,11 @@
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
-    "src/**/*.{js,jsx,ts,jsx}": [
+    "./src/**/*.{js,jsx,ts,tsx}": [
       "eslint \"./**/*.{js,jsx,ts,tsx}\" --fix"
     ],
     "./src/**/*.tsx": [
-      "stylelint --fix \"./src/**/*.tsx\" --custom-syntax @stylelint/postcss-css-in-js"
+      "stylelint \"./src/**/*.tsx\" --custom-syntax @stylelint/postcss-css-in-js"
     ]
   },
   "husky": {

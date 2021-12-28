@@ -1,4 +1,4 @@
-<h1 align="center">Hacker News<small><i>test</i></small></h1>
+<h1 align="center">Hacker News</h1>
 
 <div align="center">
   <h2>

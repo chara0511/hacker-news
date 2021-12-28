@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof Pagination> = (args) => (
 
 export const Basic = Template.bind({})
 Basic.args = {
-  lastPage: 10
+  lastPage: 25
 }

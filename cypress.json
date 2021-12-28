@@ -1,7 +1,12 @@
 {
+  "baseUrl": "http://localhost:3000",
+  "viewportHeight": 1000,
+  "viewportWidth": 1280,
+  "video": false,
+  "experimentalStudio": true,
+  "testFiles": "**/*.spec.{js,ts,jsx,tsx}",
   "component": {
-    "video": false,
-    "testFiles": "**/*.spec.ct.{js,ts,jsx,tsx}",
-    "componentFolder": "./src"
+    "componentFolder": "./src",
+    "testFiles": "**/*.spec.{js,ts,jsx,tsx}"
   }
 }

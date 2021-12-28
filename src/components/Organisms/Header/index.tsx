@@ -13,8 +13,9 @@ const Header = () => {
         margin="auto"
         width="100%"
         maxWidth="1440px"
+        data-cy="title"
       >
-        <Title font="secondary" size="lg">
+        <Title font="secondary" size="lg" data-cy="title">
           HACKER NEWS
         </Title>
       </StyledHeaderFlex>

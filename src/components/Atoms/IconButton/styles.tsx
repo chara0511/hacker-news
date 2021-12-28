@@ -18,6 +18,7 @@ export const StyledIconButton = styled.button<IconButtonProps>`
   color: ${({ active }) =>
     active ?? false ? 'var(--white)' : 'var(--zambezi)'};
   transition: var(--transition);
+  user-select: 'none';
 
   &:disabled {
     opacity: 0.4;

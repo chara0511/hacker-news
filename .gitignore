@@ -3,4 +3,10 @@ node_modules
 dist
 dist-ssr
 *.local
+<<<<<<< HEAD
 .eslintcache
+=======
+
+.eslintcache
+build-storybook.log
+>>>>>>> 1a6b56f9500720f68ef2f97add278ea7dadf862d

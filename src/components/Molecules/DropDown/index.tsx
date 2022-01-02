@@ -66,7 +66,6 @@ const DropDown = ({
       scrolledToTop={scrolledToTop}
     >
       <StyledDropDownBtn
-        data-cy="dropdown"
         aria-label={`search ${state.query}`}
         type="button"
         onClick={() => setOpen(!open)}
@@ -95,7 +94,6 @@ const DropDown = ({
               {items.map((item, index) => (
                 <StyledDropDownItem key={item.name}>
                   <StyledDropDownBtn
-                    data-cy={`dropdown-item-${item.name}`}
                     disabled={index === 0}
                     onClick={() => {
                       if (state.view !== 'all') {

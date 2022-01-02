@@ -5,6 +5,7 @@ import { Flex } from '../../Molecules'
 
 const ErrorFallback = ({ error, resetErrorBoundary }: any) => {
   if (error) {
+    // eslint-disable-next-line no-console
     console.log(error)
   }
 

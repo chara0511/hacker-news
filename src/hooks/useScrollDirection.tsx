@@ -14,14 +14,15 @@ const useScrollDirection = ({
   thresholdPixels,
   off
 }: Params) => {
-  const [scrollDir, setScrollDir] = React.useState(initialDirection)
+  const [scrollDirection, setScrollDirection] = React.useState(initialDirection)
+  const [scrolledToTop, setScrolledToTop] = React.useState(true)
 
   React.useEffect(() => {
     const threshold = thresholdPixels || 0
     let lastScrollY = window.pageYOffset
     let ticking = false
 
-    const updateScrollDir = () => {
+    const updateScrollDirection = () => {
       const scrollY = window.pageYOffset
 
       if (Math.abs(scrollY - lastScrollY) < threshold) {
@@ -29,14 +30,14 @@ const useScrollDirection = ({
         return
       }
 
-      setScrollDir(scrollY > lastScrollY ? scrollDown : scrollUp)
+      setScrollDirection(scrollY > lastScrollY ? scrollDown : scrollUp)
       lastScrollY = scrollY > 0 ? scrollY : 0
       ticking = false
     }
 
     const onScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(updateScrollDir)
+        window.requestAnimationFrame(updateScrollDirection)
         ticking = true
       }
     }
@@ -47,12 +48,24 @@ const useScrollDirection = ({
      */
     !off
       ? window.addEventListener('scroll', onScroll)
-      : setScrollDir(initialDirection)
+      : setScrollDirection(initialDirection)
 
     return () => window.removeEventListener('scroll', onScroll)
   }, [initialDirection, thresholdPixels, off])
 
-  return scrollDir
+  const handleScroll = () => {
+    setScrolledToTop(window.pageYOffset < 50)
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  return { scrollDirection, scrolledToTop }
 }
 
 export default useScrollDirection

@@ -1,4 +1,5 @@
-
+/* eslint-disable no-console */
+import axios, { AxiosError, AxiosResponse } from 'axios'
 import { useQuery, UseQueryResult } from 'react-query'
 
 import { baseApi } from '../api'
@@ -18,8 +19,15 @@ export default function useNews ({
     async () =>
       await baseApi
         .get<News>(`search_by_date?query=${query}&page=${page}`)
-        .then((response) => response.data)
-        .catch((error) => error),
+        .then((response: AxiosResponse<News, any>) => response.data)
+        .catch((error: Error | AxiosError) => {
+          // TODO: Display notifications
+          if (axios.isAxiosError(error)) {
+            console.log('axios-error', error)
+          } else {
+            console.log(error)
+          }
+        }),
     {
       enabled: page >= 0 && Boolean(query),
       staleTime: 600000

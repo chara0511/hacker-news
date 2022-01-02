@@ -1,6 +1,9 @@
 {
   "name": "hacker-news",
   "version": "0.0.5",
+  "engines": {
+    "node": "14.18.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

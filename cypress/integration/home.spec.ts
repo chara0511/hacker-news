@@ -7,7 +7,9 @@ describe('Home page', () => {
     cy.intercept('GET', newsApiUrl).as('getNews')
     cy.visit('/')
     cy.wait('@getNews').then(({ response }: any) => {
+      // @ts-ignore
       expect(response.statusCode).to.eq(200)
+      // @ts-ignore
       assert.isNotNull(response.body, 'getNews API call has data')
     })
   })
@@ -19,3 +21,5 @@ describe('Home page', () => {
       })
   })
 })
+
+export {}

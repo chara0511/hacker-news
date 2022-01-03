@@ -78,7 +78,7 @@ const Main = () => {
                   <Skeleton key={item} height="90px" />
               ))
               : state.news?.hits?.map((hit) => (
-                  <Card key={hit.objectID} data={hit} dataCy={hit.objectID} />
+                  <Card key={hit.objectID} data={hit} dataCy={`hit-${hit.objectID}`} />
               ))}
           </>
         )}
@@ -88,7 +88,7 @@ const Main = () => {
             {state.favorites.length > 0
               ? (
                   state.favorites?.map((hit) => (
-                <Card key={hit.objectID} data={hit} dataCy={hit.objectID} />
+                <Card key={hit.objectID} data={hit} dataCy={`hit-${hit.objectID}`} />
                   ))
                 )
               : (

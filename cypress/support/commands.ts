@@ -26,6 +26,10 @@
 
 /// <reference path="../cypress.d.ts" />
 
-Cypress.Commands.add('dataCy', (selector, ...args) => {
+Cypress.Commands.add('getBySelector', (selector, ...args) => {
   return cy.get(`[data-cy=${selector}]`, ...args)
+})
+
+Cypress.Commands.add('getBySelectorLike', (selector, ...args) => {
+  return cy.get(`[data-cy*=${selector}]`, ...args)
 })

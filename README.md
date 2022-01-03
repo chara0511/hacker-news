@@ -51,6 +51,7 @@
 - [Storybook](https://storybook.js.org/)
 - [Styled-components](https://styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
 
 ## Features
 

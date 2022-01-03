@@ -5,6 +5,7 @@ import { StyledIconButton, StyledIconCardButton } from './styles'
 export interface IconButtonProps {
   active?: boolean;
   children: React.ReactNode;
+  // eslint-disable-next-line no-unused-vars
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   shape?: 'card' | 'pagination';

@@ -6,10 +6,9 @@ describe('Home page', () => {
   beforeEach(() => {
     cy.intercept('GET', newsApiUrl).as('getNews')
     cy.visit('/')
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     cy.wait('@getNews').then(({ response }: any) => {
-      // @ts-ignore
       expect(response.statusCode).to.eq(200)
-      // @ts-ignore
       assert.isNotNull(response.body, 'getNews API call has data')
     })
   })

@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface VuejsIconProps extends React.SVGProps<SVGSVGElement> {}
 
 const VuejsIcon = ({ width = 32, height = 32, ...rest }: VuejsIconProps) => (

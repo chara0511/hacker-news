@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface ArrowDownIconProps extends React.SVGProps<SVGSVGElement> {}
 
 const ArrowDownIcon = ({
@@ -9,8 +10,8 @@ const ArrowDownIcon = ({
 }: ArrowDownIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    height={24}
-    width={24}
+    height={width}
+    width={height}
     viewBox="0 0 24 24"
     {...rest}
   >

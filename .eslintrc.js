@@ -4,6 +4,9 @@ module.exports = {
     es2021: true
   },
   extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:storybook/recommended',
     'plugin:cypress/recommended',

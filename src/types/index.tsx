@@ -98,4 +98,5 @@ export type Action =
   | { type: 'REMOVE_FAVORITE'; payload: Hit['objectID'] }
   | { type: 'CHANGE_VIEW'; payload: View };
 
+// eslint-disable-next-line no-unused-vars
 export type Dispatch = (action: Action) => void;

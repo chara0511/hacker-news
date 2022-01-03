@@ -4,7 +4,7 @@ import { StyledList } from './styles'
 
 interface ListProps {
   children: React.ReactNode;
-  dataCy?:string
+  dataCy?: string;
 }
 
 const List = ({ children, dataCy = 'list' }: ListProps) => {

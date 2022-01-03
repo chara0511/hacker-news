@@ -4,7 +4,7 @@
     "isolatedModules": false,
     "noEmit": true,
     "allowJs": true,
-    "types": ["cypress"]
+    "types": ["cypress", "node"]
   },
   "include": ["./**/*.js", "./**/*.ts", "./**/*.spec.ts"]
 }

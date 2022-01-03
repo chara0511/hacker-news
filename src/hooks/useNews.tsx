@@ -19,6 +19,7 @@ export default function useNews ({
     async () =>
       await baseApi
         .get<News>(`search_by_date?query=${query}&page=${page}`)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .then((response: AxiosResponse<News, any>) => response.data)
         .catch((error: Error | AxiosError) => {
           // TODO: Display notifications

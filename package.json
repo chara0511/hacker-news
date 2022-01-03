@@ -2,7 +2,11 @@
   "name": "hacker-news",
   "version": "0.0.5",
   "engines": {
-    "node": "14.18.0"
+    "node": ">=14.18.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jcarlos0511/hacker-news.git"
   },
   "scripts": {
     "dev": "vite",
@@ -16,8 +20,10 @@
     "lint:ts:fix": "npm run lint:ts -- --fix",
     "release": "standard-version",
     "cy:open": "cypress open",
+    "cy:open:mobile": "cypress open --config viewportWidth=375,viewportHeight=667",
     "cy:open:ct": "cypress open-ct",
     "cy:run": "cypress run",
+    "cy:run:mobile": "cypress run --config viewportWidth=375,viewportHeight=667",
     "storybook": "start-storybook --no-manager-cache -p 6006",
     "build-storybook": "build-storybook"
   },

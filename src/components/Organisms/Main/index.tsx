@@ -75,10 +75,16 @@ const Main = () => {
           <>
             {isLoading || isFetching
               ? skeletonCards.map((item) => (
-                  <Skeleton key={item} height="90px" />
+                  <div key={item} data-cy={`skeleton-${item}`}>
+                    <Skeleton height="90px" />
+                  </div>
               ))
               : state.news?.hits?.map((hit) => (
-                  <Card key={hit.objectID} data={hit} dataCy={`hit-${hit.objectID}`} />
+                  <Card
+                    key={hit.objectID}
+                    data={hit}
+                    dataCy={`hit-${hit.objectID}`}
+                  />
               ))}
           </>
         )}
@@ -88,7 +94,11 @@ const Main = () => {
             {state.favorites.length > 0
               ? (
                   state.favorites?.map((hit) => (
-                <Card key={hit.objectID} data={hit} dataCy={`hit-${hit.objectID}`} />
+                <Card
+                  key={hit.objectID}
+                  data={hit}
+                  dataCy={`hit-${hit.objectID}`}
+                />
                   ))
                 )
               : (

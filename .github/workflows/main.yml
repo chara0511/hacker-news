@@ -14,3 +14,5 @@ jobs:
         run: npm install
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        # with:
+        #   config: pageLoadTimeout=100000,baseUrl=http://localhost:3000

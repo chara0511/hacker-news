@@ -1,27 +1,32 @@
 name: Cypress Test
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types: [assigned, opened, synchronize, reopened]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.0
 
-      - name: Install node
-        uses: actions/setup-node@v2
-        with:
-          runTests: false
+      # - name: Install node
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     runTests: false
 
-      - name: Install dependencies
-        run: npm install
+      # - name: Install dependencies
+      #   run: npm install
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
+      - name: Cypress.io
+        uses: cypress-io/github-action@v2.9.7
         with:
           # Linux and MacOS
-          start: npm start
-          # Takes precedences on Windows
-          start-windows: npm run start:windows:server
+          start: npm run dev
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
         env:

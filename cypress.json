@@ -1,9 +1,14 @@
 {
+  "baseUrl": "http://localhost:3000",
   "viewportHeight": 1000,
   "viewportWidth": 1280,
   "video": false,
   "experimentalStudio": true,
   "testFiles": "**/*.spec.{js,ts,jsx,tsx}",
+  "retries": {
+    "runMode": 2,
+    "openMode": 1
+  },
   "env": {
     "newsApiUrl": "https://hn.algolia.com/api/v1/"
   },

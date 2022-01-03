@@ -18,4 +18,13 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://hacker-news-flame.vercel.app/
+          # Linux and MacOS
+          start: npm start
+          # Takes precedences on Windows
+          start-windows: npm run start:windows:server
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 120
+        env:
+          # Recommended: pass the GitHub token lets this action correctly
+          # determine the unique run id necessary to re-run the checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

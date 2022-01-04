@@ -14,14 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.0
 
-      # - name: Install node
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     runTests: false
-
-      # - name: Install dependencies
-      #   run: npm install
-
       - name: Cypress.io
         uses: cypress-io/github-action@v2.9.7
         with:

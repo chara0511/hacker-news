@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const newsApiUrl = `${Cypress.env(
-  'newsApiUrl'
-)}/search_by_date?query=angular&page=0`
+const newsApiUrl = 'https://hn.algolia.com/api/v1//search_by_date?query=angular&page=0'
 
 describe('Home page', () => {
   beforeEach(() => {

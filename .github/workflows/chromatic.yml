@@ -11,7 +11,7 @@ on:
     types: [assigned, opened, synchronize, reopened]
 # List of jobs
 jobs:
-  test:
+  chromatic-run:
     # Operating System
     runs-on: ubuntu-latest
     # Job steps

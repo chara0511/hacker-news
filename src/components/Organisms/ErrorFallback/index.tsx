@@ -3,8 +3,10 @@ import * as React from 'react'
 import { Button, Text } from '../../Atoms'
 import { Flex } from '../../Molecules'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ErrorFallback = ({ error, resetErrorBoundary }: any) => {
   if (error) {
+    // eslint-disable-next-line no-console
     console.log(error)
   }
 

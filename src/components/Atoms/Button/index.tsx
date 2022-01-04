@@ -5,6 +5,7 @@ import { StyledButton } from './styles'
 export interface ButtonProps {
   active?: boolean;
   children: React.ReactNode;
+  // eslint-disable-next-line no-unused-vars
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
 }

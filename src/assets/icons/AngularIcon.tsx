@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface AngularIconProps extends React.SVGProps<SVGSVGElement> {}
 
 const AngularIcon = ({

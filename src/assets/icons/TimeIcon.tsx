@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface TimeIconProps extends React.SVGProps<SVGSVGElement> {}
 
 const TimeIcon = ({ width = 16, height = 16, ...rest }: TimeIconProps) => (

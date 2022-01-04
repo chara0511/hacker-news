@@ -1,0 +1,17 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "projectId": "kjcjo4",
+  "viewportHeight": 1000,
+  "viewportWidth": 1280,
+  "video": true,
+  "experimentalStudio": true,
+  "testFiles": "**/*.spec.{js,ts,jsx,tsx}",
+  "retries": {
+    "runMode": 2,
+    "openMode": 1
+  },
+  "component": {
+    "componentFolder": "./src",
+    "testFiles": "**/*.spec.{js,ts,jsx,tsx}"
+  }
+}

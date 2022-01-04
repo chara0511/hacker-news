@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface FavoriteOutlinedIconProps extends React.SVGProps<SVGSVGElement> {}
 
 const FavoriteOutlinedIcon = ({

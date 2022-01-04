@@ -51,10 +51,11 @@
 - [Storybook](https://storybook.js.org/)
 - [Styled-components](https://styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
 
 ## Features
 
-This is a project that started with [`npm init vite@latest my-vue-app -- --template react-ts`](https://vitejs.dev/guide/#scaffolding-your-first-vite-project), which was created as a challenge post to [Reign](https://www.reign.cl/).
+This is a project that started with [`npm init vite@latest hacker-news -- --template react-ts`](https://vitejs.dev/guide/#scaffolding-your-first-vite-project), which was created as a challenge post to [Reign](https://www.reign.cl/).
 
 ## How To Use
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/jcarlos0511/hacker-news/compare/v0.0.5...v0.0.6) (2022-01-04)
+
+
+### Bug Fixes
+
+* Add env base url to fix test in home.spec.ts ([9fb35e9](https://github.com/jcarlos0511/hacker-news/commit/9fb35e92debf6ee2874fb70eb316c612f0f7b676))
+
 ### [0.0.5](https://github.com/jcarlos0511/hacker-news/compare/v0.0.4...v0.0.5) (2021-12-28)
 
 

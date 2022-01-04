@@ -9,13 +9,14 @@ import type { Hit } from '../../../types'
 
 interface CardProps {
   data: Hit;
+  dataCy: string;
 }
 
-const Card = ({ data }: CardProps) => {
+const Card = ({ data, dataCy }: CardProps) => {
   const { dispatch } = useNewsUpdater()
 
   return (
-    <StyledCard>
+    <StyledCard data-cy={dataCy}>
       <Flex justifyContent="space-between" height="90px">
         <Link href={data.story_url ?? ''}>
           <Flex flexDirection="column" padding="14px 16px 14px 26px">

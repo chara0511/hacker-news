@@ -1,6 +1,6 @@
-<h1 style="display:flex;justify-content:center" >Hacker News</h1>
+<h1 align="center" style="display:flex;justify-content:center" >Hacker News</h1>
 
-<div style="display:flex;align:center;justify-content:center;gap:2px;height:fit-content" >
+<div align="center" style="display:flex;align:center;justify-content:center;gap:2px;height:fit-content" >
 
   <a href="https://hacker-news-flame.vercel.app/" target="_blank">
     <img src="https://img.shields.io/github/package-json/v/jcarlos0511/hacker-news?color=%230070f3&label=demo&logo=vercel" />
@@ -23,14 +23,38 @@
 
 ## 🔥 Table of Contents
 
+- [Built With](#built-with)
 - [Overview](#overview)
-  - [Built With](#built-with)
 - [Features](#features)
 - [How to use](#how-to-use)
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
 
-<!-- OVERVIEW -->
+## Built with
+
+<div align="center" style="display:flex;align:center;justify-content:center;gap:2px;height:fit-content" >
+
+[![](https://img.shields.io/badge/Cypress-323330?style=for-the-badge&logo=cypress&color=162332)](https://www.cypress.io/)
+
+[![](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+
+[![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+
+[![](https://img.shields.io/badge/React%20query-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react-query.tanstack.com/)
+
+</div>
+
+<div align="center" style="display:flex;align:center;justify-content:center;gap:2px;height:fit-content" >
+
+[![](https://img.shields.io/badge/Storybook-323330?style=for-the-badge&logo=storybook&logoColor=white&color=FF4785)](https://storybook.js.org/)
+
+[![](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)](https://styled-components.com/)
+
+[![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+
+[![](https://img.shields.io/badge/Vite-007ACC?style=for-the-badge&logo=vite&color=FFB60E)](https://vitejs.dev/)
+
+</div>
 
 ## Overview
 
@@ -50,29 +74,9 @@
 
 </details>
 
-### Built with
-
-<div style="display:flex;align:center;justify-content:center;gap:2px;height:fit-content" >
-
-[![](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/es/docs/Web/JavaScript)
-
-[![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-
-[![](https://img.shields.io/badge/React%20query-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react-query.tanstack.com/)
-
-[![](https://img.shields.io/badge/Storybook-323330?style=for-the-badge&logo=storybook&logoColor=white&color=FF4785)](https://storybook.js.org/)
-
-[![](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)](https://styled-components.com/)
-
-[![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-
-[![](https://img.shields.io/badge/Vite-007ACC?style=for-the-badge&logo=vite&color=FFB60E)](https://vitejs.dev/)
-
-</div>
-
 ## Features
 
-This is a project that started with [`npm init vite@latest hacker-news -- --template react-ts`](https://vitejs.dev/guide/#scaffolding-your-first-vite-project), which was created as a challenge post to [Reign](https://www.reign.cl/).
+This is a project that started with [`npm init vite@latest hacker-news -- --template react-ts`](https://vitejs.dev/guide/#scaffolding-your-first-vite-project), started as a result of a frontend development challenge by [REIGN](https://www.reign.cl/).
 
 ## How To Use
 

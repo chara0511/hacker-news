@@ -28,4 +28,4 @@ jobs:
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          newsApiUrl: https://hn.algolia.com/api/v1
+          VITE_APP_API_BASE_URL: https://hn.algolia.com/api/v1

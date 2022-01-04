@@ -27,8 +27,6 @@ jobs:
         with:
           # Linux and MacOS
           start: npm run dev
-          wait-on: 'http://localhost:3000'
-          wait-on-timeout: 120
         env:
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks

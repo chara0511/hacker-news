@@ -9,9 +9,6 @@
     "runMode": 2,
     "openMode": 1
   },
-  "env": {
-    "newsApiUrl": "https://hn.algolia.com/api/v1/"
-  },
   "component": {
     "componentFolder": "./src",
     "testFiles": "**/*.spec.{js,ts,jsx,tsx}"

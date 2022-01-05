@@ -1,6 +1,6 @@
-<h1 align="center" style="display:flex;justify-content:center" >Hacker News</h1>
+<h1 align="center">Hacker News</h1>
 
-<div align="center" style="display:flex;align:center;justify-content:center;gap:2px;height:fit-content" >
+<div align="center">
 
   <a href="https://hacker-news-flame.vercel.app/" target="_blank">
     <img src="https://img.shields.io/github/package-json/v/jcarlos0511/hacker-news?color=%230070f3&label=demo&logo=vercel" />
@@ -32,27 +32,43 @@
 
 ## Built with
 
-<div align="center" style="display:flex;align:center;justify-content:center;gap:2px;height:fit-content" >
+<div align="center">
 
-[![](https://img.shields.io/badge/Cypress-323330?style=for-the-badge&logo=cypress&color=162332)](https://www.cypress.io/)
+  <a href="https://www.cypress.io/">
+    <img src="https://img.shields.io/badge/Cypress-323330?style=for-the-badge&logo=cypress&color=162332" />
+  </a>
 
-[![](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+  <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
+    <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
+  </a>
 
-[![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+  <a href="https://reactjs.org/">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  </a>
 
-[![](https://img.shields.io/badge/React%20query-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react-query.tanstack.com/)
+   <a href="https://react-query.tanstack.com/">
+    <img src="https://img.shields.io/badge/React%20query-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  </a>
 
 </div>
 
-<div align="center" style="display:flex;align:center;justify-content:center;gap:2px;height:fit-content" >
+<div align="center">
 
-[![](https://img.shields.io/badge/Storybook-323330?style=for-the-badge&logo=storybook&logoColor=white&color=FF4785)](https://storybook.js.org/)
+  <a href="https://storybook.js.org/">
+    <img src="https://img.shields.io/badge/Storybook-323330?style=for-the-badge&logo=storybook&logoColor=white&color=FF4785" />
+  </a>
 
-[![](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)](https://styled-components.com/)
+  <a href="https://styled-components.com/">
+    <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" />
+  </a>
 
-[![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+  </a>
 
-[![](https://img.shields.io/badge/Vite-007ACC?style=for-the-badge&logo=vite&color=FFB60E)](https://vitejs.dev/)
+  <a href="https://vitejs.dev/">
+    <img src="https://img.shields.io/badge/Vite-007ACC?style=for-the-badge&logo=vite&color=FFB60E" />
+  </a>
 
 </div>
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/jcarlos0511/hacker-news/compare/v0.0.6...v0.0.7) (2022-01-05)
+
+
+### Features
+
+* Add dark mode ([677c454](https://github.com/jcarlos0511/hacker-news/commit/677c45428403cb782c8f5c8208222ef0134cc91a))
+
 ### [0.0.6](https://github.com/jcarlos0511/hacker-news/compare/v0.0.5...v0.0.6) (2022-01-04)
 
 

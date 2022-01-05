@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { Title } from '../../Atoms'
+import ThemeToggler from '../../Molecules/ThemeToggler'
 import { StyledHeader, StyledHeaderFlex } from './styles'
 
 const Header = () => {
@@ -9,7 +10,6 @@ const Header = () => {
       <StyledHeaderFlex
         justifyContent="space-between"
         alignItems="center"
-        padding="44px 150px 42px 150px"
         margin="auto"
         width="100%"
         maxWidth="1440px"
@@ -17,6 +17,8 @@ const Header = () => {
         <Title font="secondary" size="lg">
           HACKER NEWS
         </Title>
+
+       <ThemeToggler />
       </StyledHeaderFlex>
     </StyledHeader>
   )

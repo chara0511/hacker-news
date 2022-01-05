@@ -35,11 +35,17 @@ const Card = ({ data, dataCy }: CardProps) => {
           </Flex>
         </Link>
 
-        <Flex padding="0px 22px" alignItems="center" smoked>
+        <Flex
+          padding="0px 22px"
+          alignItems="center"
+          borderTopRightRadius="6px"
+          borderBottomRightRadius="6px"
+          smoked
+        >
           {!data.is_fav
             ? (
             <IconButton
-              shape="card"
+              shape="circle"
               onClick={() =>
                 dispatch({
                   type: 'ADD_FAVORITE',
@@ -52,7 +58,7 @@ const Card = ({ data, dataCy }: CardProps) => {
               )
             : (
             <IconButton
-              shape="card"
+              shape="circle"
               onClick={() =>
                 dispatch({ type: 'REMOVE_FAVORITE', payload: data.objectID })
               }

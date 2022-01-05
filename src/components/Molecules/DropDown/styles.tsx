@@ -11,7 +11,7 @@ export const StyledDropDown = styled.div<{
   display: block;
 
   position: sticky;
-  top: 156px;
+  top: 157px;
   z-index: 49;
   padding: 8px 0px;
   background-color: var(--gray-99);
@@ -24,13 +24,13 @@ export const StyledDropDown = styled.div<{
   }
 
   @media (max-width: 960px) {
-    top: 135px;
+    top: 137px;
     margin: 38px auto;
     padding: 0;
   }
 
   @media (max-width: 480px) {
-    top: 112px;
+    top: 115px;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -38,6 +38,12 @@ export const StyledDropDown = styled.div<{
       scrollDirection === 'up' &&
       !scrolledToTop &&
       css`
+        background-color: transparent;
+        background-image: linear-gradient(
+          to bottom,
+          var(--whisper) -32%,
+          var(--white) 124%
+        );
         padding: 0;
         margin: 38px auto;
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
@@ -47,6 +53,12 @@ export const StyledDropDown = styled.div<{
       scrollDirection === 'down' &&
       !scrolledToTop &&
       css`
+        background-color: transparent;
+        background-image: linear-gradient(
+          to bottom,
+          var(--whisper) -32%,
+          var(--white) 124%
+        );
         padding: 0;
         margin: 38px auto;
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);

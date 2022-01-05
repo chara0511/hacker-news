@@ -5,7 +5,9 @@ import {
   ArrowDownIcon,
   FavoriteFilledIcon,
   FavoriteOutlinedIcon,
+  MoonIcon,
   ReactjsIcon,
+  SunIcon,
   TimeIcon,
   VuejsIcon
 } from '../../../assets/icons'
@@ -36,6 +38,12 @@ const Icon = ({ name = 'error', width, heigth }: IconProps) => {
 
     case 'favoriteOutlined':
       return <FavoriteOutlinedIcon width={width} height={heigth} />
+
+    case 'moon':
+      return <MoonIcon width={width} height={heigth} />
+
+    case 'sun':
+      return <SunIcon width={width} height={heigth} />
 
     case 'time':
       return <TimeIcon width={width} height={heigth} />

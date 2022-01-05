@@ -18,6 +18,17 @@ const globalStyles = createGlobalStyle`
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
+  [data-theme="dark"] {
+    --eclipse: #3b3b3b;
+    --dodger-blue: #1797ff;
+    --gray-84: #606060;
+    --gray-99: #202020;     
+    --whisper: #2c2c2c;     
+    --white: #3b3b3b;       
+    --whiteSmoke: #333533;  
+    --zambezi: #ececec;    
+  }
+
   html {
     color: var(--zambezi);
     font-family:var(--font-roboto);

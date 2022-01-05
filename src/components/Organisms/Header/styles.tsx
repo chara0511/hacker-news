@@ -14,13 +14,16 @@ export const StyledHeader = styled.header`
   left: 0;
   right: 0;
   z-index: 99;
+  transition: var(--transition);
 `
 export const StyledHeaderFlex = styled(StyledFlex)`
+  padding: 29px 150px;
+
   @media (max-width: 960px) {
-    padding: 32px;
+    padding: 18px 32px;
   }
 
   @media (max-width: 480px) {
-    padding: 22px 16px;
+    padding: 8px 16px;
   }
 `

@@ -7,7 +7,7 @@ import useNewsState from '../../../hooks/useNewsState'
 import useNewsUpdater from '../../../hooks/useNewsUpdater'
 import useScrollDirection from '../../../hooks/useScrollDirection'
 import { defaultItems, skeletonCards, views } from '../../../utils/constants'
-import { StyledFilterFlex, StyledMain } from './styles'
+import { StyledContainer, StyledFilterFlex, StyledMain } from './styles'
 
 const Main = () => {
   const { state } = useNewsState()
@@ -46,77 +46,79 @@ const Main = () => {
 
   return (
     <StyledMain>
-      <StyledFilterFlex
-        justifyContent="center"
-        scrollDirection={scrollDirection}
-        scrolledToTop={scrolledToTop}
-      >
-        {views.map((view) => (
-          <Button
-            key={view}
-            active={state.view === view}
-            onClick={() => dispatch({ type: 'CHANGE_VIEW', payload: view })}
-          >
-            {view}
-          </Button>
-        ))}
-      </StyledFilterFlex>
+      <StyledContainer>
+        <StyledFilterFlex
+          justifyContent="center"
+          scrollDirection={scrollDirection}
+          scrolledToTop={scrolledToTop}
+        >
+          {views.map((view) => (
+            <Button
+              key={view}
+              active={state.view === view}
+              onClick={() => dispatch({ type: 'CHANGE_VIEW', payload: view })}
+            >
+              {view}
+            </Button>
+          ))}
+        </StyledFilterFlex>
 
-      <DropDown
-        items={[{ name: 'Select your news' }, ...defaultItems]}
-        positionTopMenu="306px"
-        positionLeftMenu="146px"
-        scrollDirection={scrollDirection}
-        scrolledToTop={scrolledToTop}
-      />
+        <DropDown
+          items={[{ name: 'Select your news' }, ...defaultItems]}
+          positionTopMenu="306px"
+          positionLeftMenu="146px"
+          scrollDirection={scrollDirection}
+          scrolledToTop={scrolledToTop}
+        />
 
-      <List dataCy="hits">
-        {state.view === 'all' && (
-          <>
-            {isLoading || isFetching
-              ? skeletonCards.map((item) => (
-                  <div key={item} data-cy={`skeleton-${item}`}>
-                    <Skeleton height="90px" />
-                  </div>
-              ))
-              : state.news?.hits?.map((hit) => (
+        <List dataCy="hits">
+          {state.view === 'all' && (
+            <>
+              {isLoading || isFetching
+                ? skeletonCards.map((item) => (
+                    <div key={item} data-cy={`skeleton-${item}`}>
+                      <Skeleton height="90px" />
+                    </div>
+                ))
+                : state.news?.hits?.map((hit) => (
+                    <Card
+                      key={hit.objectID}
+                      data={hit}
+                      dataCy={`hit-${hit.objectID}`}
+                    />
+                ))}
+            </>
+          )}
+
+          {state.view === 'my favs' && (
+            <>
+              {state.favorites.length > 0
+                ? (
+                    state.favorites?.map((hit) => (
                   <Card
                     key={hit.objectID}
                     data={hit}
                     dataCy={`hit-${hit.objectID}`}
                   />
-              ))}
-          </>
-        )}
-
-        {state.view === 'my favs' && (
-          <>
-            {state.favorites.length > 0
-              ? (
-                  state.favorites?.map((hit) => (
-                <Card
-                  key={hit.objectID}
-                  data={hit}
-                  dataCy={`hit-${hit.objectID}`}
-                />
-                  ))
-                )
-              : (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)'
-                }}
-              >
-                Add Favorites...
-              </div>
-                )}
-          </>
-        )}
-      </List>
-      <Pagination lastPage={data?.nbPages ?? 0} />
+                    ))
+                  )
+                : (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)'
+                  }}
+                >
+                  Add Favorites...
+                </div>
+                  )}
+            </>
+          )}
+        </List>
+        <Pagination lastPage={data?.nbPages ?? 0} />
+      </StyledContainer>
     </StyledMain>
   )
 }

@@ -14,6 +14,8 @@ export type IconName =
   | 'favoriteFilled'
   | 'time'
   | 'favoriteOutlined'
+  | 'moon'
+  | 'sun'
   | 'error';
 
 // Hook types

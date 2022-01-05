@@ -3,6 +3,7 @@ import React from 'react'
 import { StyledIconCircleButton, StyledIconSquareButton } from './styles'
 
 export interface IconButtonProps {
+  dataCy?: string;
   active?: boolean;
   children: React.ReactNode;
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
@@ -13,6 +14,7 @@ export interface IconButtonProps {
 const IconButton = ({
   active,
   children,
+  dataCy,
   disabled,
   onClick,
   shape
@@ -20,6 +22,7 @@ const IconButton = ({
   if (shape === 'circle') {
     return (
       <StyledIconCircleButton
+        data-cy={dataCy}
         active={active}
         onClick={onClick}
         type="button"
@@ -29,8 +32,10 @@ const IconButton = ({
       </StyledIconCircleButton>
     )
   }
+
   return (
     <StyledIconSquareButton
+      data-cy={dataCy}
       active={active}
       onClick={onClick}
       type="button"

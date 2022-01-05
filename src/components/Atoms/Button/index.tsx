@@ -10,12 +10,18 @@ export interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button = ({
-  active,
-  children,
-  disabled,
-  onClick
-}: ButtonProps) => {
+/**
+ * @description Custom button component for rendering a memorized and styled button.
+ * @param {boolean} active - Custom button will appear pressed. By default false.
+ * @param {*} children - React.ReactNode.
+ * @param {boolean} disabled - Convert custom button unusable and un-clickable. By default false.
+ * @param {number} onClick - Event executes a certain functionality when a custom button is clicked. .
+ * @example
+ * <Button active={true} disabled={true} onClick={() => void()} >
+      Click me!
+    </Button>
+ */
+const Button = ({ active, children, disabled, onClick }: ButtonProps) => {
   return (
     <StyledButton
       active={active}

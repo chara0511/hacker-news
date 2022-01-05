@@ -17,6 +17,7 @@ const ThemeToggler = () => {
 
   return (
     <IconButton
+      dataCy="theme-toggler"
       shape="circle"
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
     >

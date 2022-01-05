@@ -19,6 +19,13 @@ interface IconProps {
   heigth?: number;
 }
 
+/**
+ * @description Custom icon component for rendering a memorized svg.
+ * @param {string} name - Name icon.
+ * @param {number} width - Width icon.
+ * @param {number} heigth - Heigth icon.
+ * @example <Icon name="moon" width={26} heigth={26} />
+ */
 const Icon = ({ name = 'error', width, heigth }: IconProps) => {
   switch (name) {
     case 'angular':

@@ -7,7 +7,7 @@ import useNewsUpdater from '../../../hooks/useNewsUpdater'
 import { StyledCard } from './styles'
 import type { Hit } from '../../../types'
 
-interface CardProps {
+export interface CardProps {
   data: Hit;
   dataCy: string;
 }
@@ -16,9 +16,22 @@ const Card = ({ data, dataCy }: CardProps) => {
   const { dispatch } = useNewsUpdater()
 
   return (
-    <StyledCard data-cy={dataCy}>
+    <StyledCard
+      data-cy={dataCy}
+      disabled={
+        !data.author || !data.created_at || !data.story_title || !data.story_url
+      }
+    >
       <Flex justifyContent="space-between" height="90px">
-        <Link href={data.story_url ?? ''}>
+        <Link
+          href={data.story_url ?? ''}
+          disabled={
+            !data.author ||
+            !data.created_at ||
+            !data.story_title ||
+            !data.story_url
+          }
+        >
           <Flex flexDirection="column" padding="14px 16px 14px 26px">
             <Flex columnGap="8px">
               <Icon name="time" />
@@ -45,6 +58,12 @@ const Card = ({ data, dataCy }: CardProps) => {
           {!data.is_fav
             ? (
             <IconButton
+              disabled={
+                !data.author ||
+                !data.created_at ||
+                !data.story_title ||
+                !data.story_url
+              }
               shape="circle"
               onClick={() =>
                 dispatch({

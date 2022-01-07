@@ -25,7 +25,7 @@ const Main = () => {
         type: 'GET_NEWS',
         payload: {
           ...data,
-          hits: data?.hits?.map((hit) => ({
+          hits: data?.hits.map((hit) => ({
             ...hit,
             is_fav:
               favorites.find((fav) => hit.objectID === fav.objectID)?.is_fav ??
@@ -38,7 +38,7 @@ const Main = () => {
         JSON.stringify({ favorites, page, query, view })
       )
     }
-  }, [data, isLoading, favorites, page, query, view])
+  }, [data, isLoading, favorites, page, query, view, dispatch])
 
   const { scrollDirection, scrolledToTop } = useScrollDirection({
     initialDirection: 'up'
@@ -56,7 +56,14 @@ const Main = () => {
             <Button
               key={view}
               active={state.view === view}
-              onClick={() => dispatch({ type: 'CHANGE_VIEW', payload: view })}
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'smooth'
+                })
+                dispatch({ type: 'CHANGE_VIEW', payload: view })
+              }}
             >
               {view}
             </Button>
@@ -80,7 +87,7 @@ const Main = () => {
                       <Skeleton height="90px" />
                     </div>
                 ))
-                : state.news?.hits?.map((hit) => (
+                : state.news?.hits.map((hit) => (
                     <Card
                       key={hit.objectID}
                       data={hit}

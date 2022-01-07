@@ -66,15 +66,22 @@ export const StyledDropDown = styled.div<{
   }
 `
 
-export const StyledDropDownWrapper = styled.div`
-  position: absolute;
+export const StyledDropDownContainer = styled.div`
+  position: fixed;
   z-index: 99;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(59, 59, 59, 0.5);
+`
+
+export const StyledDropDownWrapper = styled.div`
   max-width: 1440px;
   margin: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
 `
 
 export const StyledDropDownMenu = styled.ul<{
@@ -83,10 +90,9 @@ export const StyledDropDownMenu = styled.ul<{
   scrollDirection?: Direction;
   scrolledToTop?: boolean;
 }>`
-  position: absolute;
-  z-index: 99;
-  top: ${({ positionTopMenu }) => positionTopMenu ?? 0};
-  left: ${({ positionLeftMenu }) => positionLeftMenu ?? 0};
+  height: fit-content;
+  margin-top: ${({ positionTopMenu }) => positionTopMenu ?? 0};
+  margin-left: ${({ positionLeftMenu }) => positionLeftMenu ?? 0};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   box-shadow: ${({ theme }) => theme.boxShadow.sm};
   background-color: var(--white);
@@ -99,14 +105,12 @@ export const StyledDropDownMenu = styled.ul<{
   width: 100%;
 
   @media (max-width: 960px) {
-    position: fixed;
-    left: calc(50% - 124px);
-    top: 266px;
+    margin-left: calc(50% - 125px);
+    margin-top: 268px;
   }
 
   @media (max-width: 480px) {
-    position: fixed;
-    top: 236px;
+    margin-top: 238px;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -114,15 +118,14 @@ export const StyledDropDownMenu = styled.ul<{
       props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
-        left: calc(50% - 124px);
-        top: 194px;
-        position: fixed;
+        margin-left: calc(50% - 124px);
+        margin-top: 194px;
         @media (max-width: 960px) {
-          top: 172px;
+          margin-top: 174px;
         }
 
         @media (max-width: 480px) {
-          top: 150px;
+          margin-top: 152px;
         }
       `}
 
@@ -130,15 +133,14 @@ export const StyledDropDownMenu = styled.ul<{
       props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`
-        left: calc(50% - 124px);
-        top: 194px;
-        position: fixed;
+        margin-left: calc(50% - 124px);
+        margin-top: 194px;
         @media (max-width: 960px) {
-          top: 172px;
+          margin-top: 174px;
         }
 
         @media (max-width: 480px) {
-          top: 150px;
+          margin-top: 152px;
         }
       `}
   }

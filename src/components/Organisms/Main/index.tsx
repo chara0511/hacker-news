@@ -65,8 +65,8 @@ const Main = () => {
 
         <DropDown
           items={[{ name: 'Select your news' }, ...defaultItems]}
-          positionTopMenu="306px"
-          positionLeftMenu="146px"
+          positionTopMenu="308px"
+          positionLeftMenu="145px"
           scrollDirection={scrollDirection}
           scrolledToTop={scrolledToTop}
         />

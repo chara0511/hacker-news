@@ -64,11 +64,10 @@ const globalStyles = createGlobalStyle`
     border-radius: 6px;
   }
   *::-webkit-scrollbar-thumb:hover {
-    background-color: var(--zambezi);
-    opacity: 0.4;
+    background-color: var(--gray-84);
   }
   *::-webkit-scrollbar-thumb:active {
-    background-color: var(--eclipse);
+    background-color: var(--zambezi);
   }
 
   h1,

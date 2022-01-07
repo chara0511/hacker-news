@@ -95,7 +95,7 @@ export const StyledDropDownMenu = styled.ul<{
   margin-left: ${({ positionLeftMenu }) => positionLeftMenu ?? 0};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   box-shadow: ${({ theme }) => theme.boxShadow.sm};
-  background-color: var(--white);
+  background-color: var(--gray-99);
   display: flex;
   flex-direction: column;
   align-items: flex-start;

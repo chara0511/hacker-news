@@ -105,6 +105,11 @@ const DropDown = ({
                           dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
                         }
                         dispatch({ type: 'GET_QUERY', payload: item.name })
+                        window.scrollTo({
+                          top: 0,
+                          left: 0,
+                          behavior: 'smooth'
+                        })
                         setOpen(!open)
                       }}
                     >

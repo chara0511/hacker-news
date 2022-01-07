@@ -90,7 +90,7 @@ const Main = () => {
                       <Skeleton height="90px" />
                     </div>
                 ))
-                : state.news?.hits.map((hit) => (
+                : state.news?.hits?.map((hit) => (
                     <Card
                       key={hit.objectID}
                       data={hit}

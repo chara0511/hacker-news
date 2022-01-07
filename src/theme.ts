@@ -3,7 +3,9 @@ import { DefaultTheme } from 'styled-components'
 const theme: DefaultTheme = {
   borderRadius: {
     sm: '3px',
-    md: '6px'
+    md: '6px',
+    lg: '15px',
+    xl: '50px'
   },
   boxShadow: {
     sm: ' 0 1px 4px 0 rgba(0, 21, 41, 0.12)'

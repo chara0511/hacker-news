@@ -12,10 +12,11 @@ export const StyledButton = styled.button<ButtonProps>`
     active ?? false ? 'var(--dodger-blue)' : 'var(--zambezi)'};
   font-size: ${({ theme }) => theme.fontSize.md};
   line-height: ${({ theme }) => theme.fontSize.xl};
-  width: 100px;
+  position: relative;
   text-align: center;
   text-transform: capitalize;
   transition: var(--transition);
+  width: 100px;
 
   &:hover {
     border: 1px solid var(--dodger-blue);

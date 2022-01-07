@@ -5,6 +5,8 @@ declare module 'styled-components' {
     borderRadius: {
       sm: string;
       md: string;
+      lg: string;
+      xl: string;
     };
     boxShadow: {
       sm: string;

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Button, Skeleton } from '../../Atoms'
+import { Badge, Button, Skeleton } from '../../Atoms'
 import { Card, DropDown, List, Pagination } from '../../Molecules'
 import useNews from '../../../hooks/useNews'
 import useNewsState from '../../../hooks/useNewsState'
@@ -66,6 +66,9 @@ const Main = () => {
               }}
             >
               {view}
+              {view === 'my favs' && state.favorites.length > 0 && (
+                <Badge>{state.favorites.length}</Badge>
+              )}
             </Button>
           ))}
         </StyledFilterFlex>

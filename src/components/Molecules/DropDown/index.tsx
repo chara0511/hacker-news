@@ -69,6 +69,7 @@ const DropDown = ({
       scrolledToTop={scrolledToTop}
     >
       <StyledDropDownBtn
+        data-cy="dropdown-button"
         aria-label={`search ${state.query}`}
         type="button"
         onClick={() => setOpen(!open)}

@@ -26,4 +26,9 @@ describe('Home page', () => {
       expect(doc.body.dataset.theme).to.equal('dark')
     })
   })
+
+  it('close dropdown menu when click outside', () => {
+    cy.getBySelector('dropdown-button').click()
+    cy.get('body').click(0, 0)
+  })
 })

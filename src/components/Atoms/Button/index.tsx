@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import * as React from 'react'
 
 import { StyledButton } from './styles'
@@ -21,7 +22,7 @@ export interface ButtonProps {
       Click me!
     </Button>
  */
-const Button = ({ active, children, disabled, onClick }: ButtonProps) => {
+const Button = React.memo(({ active, children, disabled, onClick }: ButtonProps) => {
   return (
     <StyledButton
       active={active}
@@ -32,6 +33,6 @@ const Button = ({ active, children, disabled, onClick }: ButtonProps) => {
       {children}
     </StyledButton>
   )
-}
+})
 
-export default React.memo(Button)
+export default Button

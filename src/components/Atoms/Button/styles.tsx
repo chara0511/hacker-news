@@ -22,4 +22,9 @@ export const StyledButton = styled.button<ButtonProps>`
     border: 1px solid var(--dodger-blue);
     color: var(--dodger-blue);
   }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
 `

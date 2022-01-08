@@ -56,6 +56,7 @@ const Main = () => {
             <Button
               key={view}
               active={state.view === view}
+              disabled={!!(view === 'my favs' && state.favorites.length <= 0)}
               onClick={() => {
                 window.scrollTo({
                   top: 0,

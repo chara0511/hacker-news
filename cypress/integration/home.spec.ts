@@ -19,4 +19,16 @@ describe('Home page', () => {
         cy.wrap($li)
       })
   })
+
+  it('display dark mode', () => {
+    cy.getBySelector('theme-toggler').click()
+    cy.document().then(doc => {
+      expect(doc.body.dataset.theme).to.equal('dark')
+    })
+  })
+
+  it('close dropdown menu when click outside', () => {
+    cy.getBySelector('dropdown-button').click()
+    cy.get('body').click(0, 0)
+  })
 })

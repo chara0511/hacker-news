@@ -11,7 +11,7 @@ export const StyledDropDown = styled.div<{
   display: block;
 
   position: sticky;
-  top: 156px;
+  top: 157px;
   z-index: 49;
   padding: 8px 0px;
   background-color: var(--gray-99);
@@ -24,29 +24,41 @@ export const StyledDropDown = styled.div<{
   }
 
   @media (max-width: 960px) {
-    top: 135px;
+    top: 137px;
     margin: 38px auto;
     padding: 0;
   }
 
   @media (max-width: 480px) {
-    top: 112px;
+    top: 115px;
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${({ scrollDirection, scrolledToTop }) =>
+     ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'up' &&
       !scrolledToTop &&
       css`
+        background-color: transparent;
+        background-image: linear-gradient(
+          to bottom,
+          var(--whisper) -32%,
+          var(--white) 124%
+        );
         padding: 0;
         margin: 38px auto;
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
       `}
 
-    ${({ scrollDirection, scrolledToTop }) =>
+     ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'down' &&
       !scrolledToTop &&
       css`
+        background-color: transparent;
+        background-image: linear-gradient(
+          to bottom,
+          var(--whisper) -32%,
+          var(--white) 124%
+        );
         padding: 0;
         margin: 38px auto;
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
@@ -54,15 +66,22 @@ export const StyledDropDown = styled.div<{
   }
 `
 
-export const StyledDropDownWrapper = styled.div`
-  position: absolute;
+export const StyledDropDownContainer = styled.div`
+  position: fixed;
   z-index: 99;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(59, 59, 59, 0.5);
+`
+
+export const StyledDropDownWrapper = styled.div`
   max-width: 1440px;
   margin: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
 `
 
 export const StyledDropDownMenu = styled.ul<{
@@ -71,13 +90,12 @@ export const StyledDropDownMenu = styled.ul<{
   scrollDirection?: Direction;
   scrolledToTop?: boolean;
 }>`
-  position: absolute;
-  z-index: 99;
-  top: ${({ positionTopMenu }) => positionTopMenu ?? 0};
-  left: ${({ positionLeftMenu }) => positionLeftMenu ?? 0};
+  height: fit-content;
+  margin-top: ${({ positionTopMenu }) => positionTopMenu ?? 0};
+  margin-left: ${({ positionLeftMenu }) => positionLeftMenu ?? 0};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   box-shadow: ${({ theme }) => theme.boxShadow.sm};
-  background-color: var(--white);
+  background-color: var(--gray-99);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -87,46 +105,42 @@ export const StyledDropDownMenu = styled.ul<{
   width: 100%;
 
   @media (max-width: 960px) {
-    position: fixed;
-    left: calc(50% - 124px);
-    top: 266px;
+    margin-left: calc(50% - 125px);
+    margin-top: 268px;
   }
 
   @media (max-width: 480px) {
-    position: fixed;
-    top: 236px;
+    margin-top: 238px;
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${(props) =>
+     ${(props) =>
       props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
-        left: calc(50% - 124px);
-        top: 194px;
-        position: fixed;
+        margin-left: calc(50% - 124px);
+        margin-top: 194px;
         @media (max-width: 960px) {
-          top: 172px;
+          margin-top: 174px;
         }
 
         @media (max-width: 480px) {
-          top: 150px;
+          margin-top: 152px;
         }
       `}
 
-    ${(props) =>
+     ${(props) =>
       props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`
-        left: calc(50% - 124px);
-        top: 194px;
-        position: fixed;
+        margin-left: calc(50% - 124px);
+        margin-top: 194px;
         @media (max-width: 960px) {
-          top: 172px;
+          margin-top: 174px;
         }
 
         @media (max-width: 480px) {
-          top: 150px;
+          margin-top: 152px;
         }
       `}
   }

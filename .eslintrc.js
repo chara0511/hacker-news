@@ -8,6 +8,7 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:storybook/recommended',
     'plugin:cypress/recommended',
     'plugin:node/recommended',
@@ -21,7 +22,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react', '@typescript-eslint', 'cypress'],
+  plugins: ['react', '@typescript-eslint', 'node', 'cypress'],
   rules: {
     'no-console': 'error',
     quotes: ['error', 'single'],

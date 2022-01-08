@@ -1,3 +1,4 @@
+import Badge from './Badge'
 import Button from './Button'
 import Icon from './Icon'
 import IconButton from './IconButton'
@@ -6,4 +7,4 @@ import Skeleton from './Skeleton'
 import Text from './Text'
 import Title from './Title'
 
-export { Button, Icon, IconButton, Link, Skeleton, Text, Title }
+export { Badge, Button, Icon, IconButton, Link, Skeleton, Text, Title }

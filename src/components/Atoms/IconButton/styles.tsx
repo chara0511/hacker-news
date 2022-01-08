@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { IconButtonProps } from '.'
 
-export const StyledIconButton = styled.button<IconButtonProps>`
+export const StyledIconSquareButton = styled.button<IconButtonProps>`
   border: ${({ active }) =>
     active ?? false
       ? '1px solid var(--dodger-blue)'
@@ -32,10 +32,9 @@ export const StyledIconButton = styled.button<IconButtonProps>`
   }
 `
 
-export const StyledIconCardButton = styled(StyledIconButton)`
+export const StyledIconCircleButton = styled(StyledIconSquareButton)`
   border: none;
   border-radius: 50%;
-  transition: var(--transition);
 
   &:hover {
     border: none;

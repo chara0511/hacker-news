@@ -10,6 +10,10 @@ interface FlexProps extends React.CSSProperties {
 const Flex = ({
   alignItems,
   backgroundColor,
+  borderTopLeftRadius,
+  borderBottomLeftRadius,
+  borderTopRightRadius,
+  borderBottomRightRadius,
   columnGap,
   children,
   flexDirection,
@@ -27,6 +31,10 @@ const Flex = ({
     <StyledFlex
       alignItems={alignItems}
       backgroundColor={backgroundColor}
+      borderTopRightRadius={borderTopRightRadius}
+      borderBottomRightRadius={borderBottomRightRadius}
+      borderTopLeftRadius={borderTopLeftRadius}
+      borderBottomLeftRadius={borderBottomLeftRadius}
       columnGap={columnGap}
       flexDirection={flexDirection}
       flexWrap={flexWrap}

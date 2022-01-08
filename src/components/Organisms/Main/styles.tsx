@@ -9,9 +9,13 @@ interface StyledFilterFlexProps extends StyledFlexProps {
 }
 
 export const StyledMain = styled.main`
+  background-color: var(--gray-99);
+  transition: var(--transition);
+`
+
+export const StyledContainer = styled.div`
   min-height: calc(100vh - 114px);
   padding: 70px 150px;
-  background-color: var(--gray-99);
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
@@ -38,23 +42,35 @@ export const StyledFilterFlex = styled(StyledFlex)<StyledFilterFlexProps>`
   }
 
   @media (max-width: 480px) {
-    top: 65px;
+    top: 66px;
     padding: 8px 0px;
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${({ scrollDirection, scrolledToTop }) =>
+     ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'up' &&
       !scrolledToTop &&
       css`
+        background-color: transparent;
+        background-image: linear-gradient(
+          to bottom,
+          var(--whisper) -32%,
+          var(--white) 124%
+        );
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
         border: 1px solid var(--gray-84);
       `}
 
-    ${({ scrollDirection, scrolledToTop }) =>
+     ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'down' &&
       !scrolledToTop &&
       css`
+        background-color: transparent;
+        background-image: linear-gradient(
+          to bottom,
+          var(--whisper) -32%,
+          var(--white) 124%
+        );
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
         border: 1px solid var(--gray-84);
       `}

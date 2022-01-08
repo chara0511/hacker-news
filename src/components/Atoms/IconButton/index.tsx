@@ -1,44 +1,48 @@
 import React from 'react'
 
-import { StyledIconButton, StyledIconCardButton } from './styles'
+import { StyledIconCircleButton, StyledIconSquareButton } from './styles'
 
 export interface IconButtonProps {
+  dataCy?: string;
   active?: boolean;
   children: React.ReactNode;
-  // eslint-disable-next-line no-unused-vars
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
-  shape?: 'card' | 'pagination';
+  shape?: 'circle' | 'square';
 }
 
 const IconButton = ({
   active,
   children,
+  dataCy,
   disabled,
   onClick,
   shape
 }: IconButtonProps) => {
-  if (shape === 'card') {
+  if (shape === 'circle') {
     return (
-      <StyledIconCardButton
+      <StyledIconCircleButton
+        data-cy={dataCy}
         active={active}
         onClick={onClick}
         type="button"
         disabled={disabled}
       >
         {children}
-      </StyledIconCardButton>
+      </StyledIconCircleButton>
     )
   }
+
   return (
-    <StyledIconButton
+    <StyledIconSquareButton
+      data-cy={dataCy}
       active={active}
       onClick={onClick}
       type="button"
       disabled={disabled}
     >
       {children}
-    </StyledIconButton>
+    </StyledIconSquareButton>
   )
 }
 

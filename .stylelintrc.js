@@ -9,4 +9,7 @@ module.exports = {
       customSyntax: '@stylelint/postcss-css-in-js',
     },
   ],
+  rules: {
+    'value-no-vendor-prefix': null,
+  },
 };

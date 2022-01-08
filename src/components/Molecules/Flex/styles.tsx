@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export interface StyledFlexProps extends React.CSSProperties {
   smoked?: boolean;
@@ -7,17 +7,43 @@ export interface StyledFlexProps extends React.CSSProperties {
 
 export const StyledFlex = styled.div<StyledFlexProps>`
   display: flex;
-  justify-content: ${({ justifyContent }) => justifyContent};
-  align-items: ${({ alignItems }) => alignItems};
-  flex-direction: ${({ flexDirection }) => flexDirection};
-  flex-wrap: ${({ flexWrap }) => flexWrap};
-  padding: ${({ padding }) => padding};
-  column-gap: ${({ columnGap }) => columnGap};
-  row-gap: ${({ rowGap }) => rowGap};
+  color: var(--zambezi);
+  transition: var(--transition);
   background-color: ${({ backgroundColor, smoked }) =>
     smoked === true ? 'var( --whiteSmoke)' : backgroundColor};
-  height: ${({ height }) => height};
-  margin: ${({ margin }) => margin};
-  max-width: ${({ maxWidth }) => maxWidth};
-  width: ${({ width }) => width};
+
+   ${({
+    alignItems,
+    borderTopLeftRadius,
+    borderBottomLeftRadius,
+    borderTopRightRadius,
+    borderBottomRightRadius,
+    columnGap,
+    flexDirection,
+    flexWrap,
+    height,
+    justifyContent,
+    margin,
+    maxWidth,
+    padding,
+    rowGap,
+    width
+  }) =>
+    css`
+      align-items: ${alignItems};
+      border-top-left-radius: ${borderTopLeftRadius};
+      border-bottom-left-radius: ${borderBottomLeftRadius};
+      border-top-right-radius: ${borderTopRightRadius};
+      border-bottom-right-radius: ${borderBottomRightRadius};
+      column-gap: ${columnGap};
+      flex-direction: ${flexDirection};
+      flex-wrap: ${flexWrap};
+      height: ${height};
+      justify-content: ${justifyContent};
+      margin: ${margin};
+      max-width: ${maxWidth};
+      padding: ${padding};
+      row-gap: ${rowGap};
+      width: ${width};
+    `}
 `

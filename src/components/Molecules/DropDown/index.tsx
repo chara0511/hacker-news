@@ -11,9 +11,11 @@ import { Icon, Text } from '../../Atoms'
 import { Flex } from '..'
 import useNewsState from '../../../hooks/useNewsState'
 import useNewsUpdater from '../../../hooks/useNewsUpdater'
+import useOnClickOutside from '../../../hooks/useOnClickOutside'
 import {
   StyledDropDown,
   StyledDropDownBtn,
+  StyledDropDownContainer,
   StyledDropDownItem,
   StyledDropDownMenu,
   StyledDropDownWrapper
@@ -45,8 +47,9 @@ const DropDown = ({
   const { dispatch } = useNewsUpdater()
 
   const [open, setOpen] = React.useState(false)
-
   const ref = React.useRef<HTMLUListElement>(null)
+
+  useOnClickOutside(ref, () => setOpen(!open))
 
   React.useEffect(() => {
     if (ref.current != null) {
@@ -66,6 +69,7 @@ const DropDown = ({
       scrolledToTop={scrolledToTop}
     >
       <StyledDropDownBtn
+        data-cy="dropdown-button"
         aria-label={`search ${state.query}`}
         type="button"
         onClick={() => setOpen(!open)}
@@ -83,41 +87,48 @@ const DropDown = ({
 
       <Portal>
         {open && (
-          <StyledDropDownWrapper>
-            <StyledDropDownMenu
-              ref={ref}
-              positionTopMenu={positionTopMenu}
-              positionLeftMenu={positionLeftMenu}
-              scrollDirection={scrollDirection}
-              scrolledToTop={scrolledToTop}
-            >
-              {items.map((item, index) => (
-                <StyledDropDownItem key={item.name}>
-                  <StyledDropDownBtn
-                    disabled={index === 0}
-                    onClick={() => {
-                      if (state.view !== 'all') {
-                        dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
-                      }
-                      dispatch({ type: 'GET_QUERY', payload: item.name })
-                      setOpen(!open)
-                    }}
-                  >
-                    <Flex alignItems="center" columnGap="4px">
-                      <Icon
-                        width={24}
-                        heigth={24}
-                        name={item.name as IconName}
-                      />
-                      <Text size="sm" lineHeight="lg">
-                        {item.name}
-                      </Text>
-                    </Flex>
-                  </StyledDropDownBtn>
-                </StyledDropDownItem>
-              ))}
-            </StyledDropDownMenu>
-          </StyledDropDownWrapper>
+          <StyledDropDownContainer>
+            <StyledDropDownWrapper>
+              <StyledDropDownMenu
+                ref={ref}
+                positionTopMenu={positionTopMenu}
+                positionLeftMenu={positionLeftMenu}
+                scrollDirection={scrollDirection}
+                scrolledToTop={scrolledToTop}
+              >
+                {items.map((item, index) => (
+                  <StyledDropDownItem key={item.name}>
+                    <StyledDropDownBtn
+                      disabled={index === 0}
+                      onClick={() => {
+                        if (state.view !== 'all') {
+                          dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
+                        }
+                        dispatch({ type: 'GET_QUERY', payload: item.name })
+                        window.scrollTo({
+                          top: 0,
+                          left: 0,
+                          behavior: 'smooth'
+                        })
+                        setOpen(!open)
+                      }}
+                    >
+                      <Flex alignItems="center" columnGap="4px">
+                        <Icon
+                          width={24}
+                          heigth={24}
+                          name={item.name as IconName}
+                        />
+                        <Text size="sm" lineHeight="lg">
+                          {item.name}
+                        </Text>
+                      </Flex>
+                    </StyledDropDownBtn>
+                  </StyledDropDownItem>
+                ))}
+              </StyledDropDownMenu>
+            </StyledDropDownWrapper>
+          </StyledDropDownContainer>
         )}
       </Portal>
     </StyledDropDown>

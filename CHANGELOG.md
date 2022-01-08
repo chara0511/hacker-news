@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/jcarlos0511/hacker-news/compare/v0.0.7...v0.0.8) (2022-01-08)
+
+
+### Features
+
+* Add badge component and display in view button to improve ux ([d466a8f](https://github.com/jcarlos0511/hacker-news/commit/d466a8fc0499cebf2d9f74839669ae5c418530ea))
+
+
+### Bug Fixes
+
+* Add scroll to top when item dropdown button is clicked ([dca14de](https://github.com/jcarlos0511/hacker-news/commit/dca14de8d65552d639283e3c296bbdc4454b27a1))
+* Close dropdown popover when is clicker outside element list ([c108328](https://github.com/jcarlos0511/hacker-news/commit/c108328c2781060cb36e66e9ad032f7fb95a92cd))
+* Disable card if author, story_title, story_url and created_at is null or undefined ([2441bda](https://github.com/jcarlos0511/hacker-news/commit/2441bda176370f4a6feea4f6ee15ceecbcd61065))
+* Truncate text card ([cf6cb1b](https://github.com/jcarlos0511/hacker-news/commit/cf6cb1b7d30367f385e8ec45d5d5405bca1de984))
+
 ### [0.0.7](https://github.com/jcarlos0511/hacker-news/compare/v0.0.6...v0.0.7) (2022-01-05)
 
 

@@ -12,7 +12,7 @@ export const StyledFlex = styled.div<StyledFlexProps>`
   background-color: ${({ backgroundColor, smoked }) =>
     smoked === true ? 'var( --whiteSmoke)' : backgroundColor};
 
-  ${({
+   ${({
     alignItems,
     borderTopLeftRadius,
     borderBottomLeftRadius,

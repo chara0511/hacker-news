@@ -8,4 +8,10 @@ export const StyledText = styled.p<TextProps>`
     theme.lineHeight[lineHeight ?? 'md']};
   color: var(--zambezi);
   text-transform: capitalize;
+  overflow: hidden;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
 `

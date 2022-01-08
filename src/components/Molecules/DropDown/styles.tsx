@@ -34,7 +34,7 @@ export const StyledDropDown = styled.div<{
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${({ scrollDirection, scrolledToTop }) =>
+     ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'up' &&
       !scrolledToTop &&
       css`
@@ -49,7 +49,7 @@ export const StyledDropDown = styled.div<{
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
       `}
 
-    ${({ scrollDirection, scrolledToTop }) =>
+     ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'down' &&
       !scrolledToTop &&
       css`
@@ -114,7 +114,7 @@ export const StyledDropDownMenu = styled.ul<{
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${(props) =>
+     ${(props) =>
       props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
@@ -129,7 +129,7 @@ export const StyledDropDownMenu = styled.ul<{
         }
       `}
 
-    ${(props) =>
+     ${(props) =>
       props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`

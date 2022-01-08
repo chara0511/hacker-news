@@ -47,7 +47,7 @@ export const StyledFilterFlex = styled(StyledFlex)<StyledFilterFlexProps>`
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${({ scrollDirection, scrolledToTop }) =>
+     ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'up' &&
       !scrolledToTop &&
       css`
@@ -61,7 +61,7 @@ export const StyledFilterFlex = styled(StyledFlex)<StyledFilterFlexProps>`
         border: 1px solid var(--gray-84);
       `}
 
-    ${({ scrollDirection, scrolledToTop }) =>
+     ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'down' &&
       !scrolledToTop &&
       css`

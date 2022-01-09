@@ -6,39 +6,50 @@ import useNews from '../../../hooks/useNews'
 import useNewsState from '../../../hooks/useNewsState'
 import useNewsUpdater from '../../../hooks/useNewsUpdater'
 import useScrollDirection from '../../../hooks/useScrollDirection'
+import useIntersectionObserver from '../../../hooks/useIntersectionObserver'
 import { defaultItems, skeletonCards, views } from '../../../utils/constants'
 import { StyledContainer, StyledFilterFlex, StyledMain } from './styles'
+import type { Hit } from '../../../types'
 
 const Main = () => {
   const { state } = useNewsState()
-  const { favorites, page, query, view } = state
+  const { favorites, query, view } = state
   const { dispatch } = useNewsUpdater()
 
-  const { data, isLoading, isFetching } = useNews({
-    query,
-    page
+  const loadMoreRef = React.useRef<HTMLDivElement>(null)
+
+  const { data, isLoading, isFetching, fetchNextPage, hasNextPage } = useNews({
+    query
+  })
+
+  useIntersectionObserver({
+    target: loadMoreRef,
+    onIntersect: fetchNextPage,
+    enabled: hasNextPage
   })
 
   React.useEffect(() => {
     if (data !== undefined && !isLoading) {
+      const arr = data?.pages?.map((news) => ({
+        ...news,
+        hits: news?.hits.map((hit) => ({
+          ...hit,
+          is_fav:
+            favorites.find((fav) => hit.objectID === fav.objectID)?.is_fav ??
+            false
+        }))
+      }))
+
       dispatch({
-        type: 'GET_NEWS',
-        payload: {
-          ...data,
-          hits: data?.hits.map((hit) => ({
-            ...hit,
-            is_fav:
-              favorites.find((fav) => hit.objectID === fav.objectID)?.is_fav ??
-              false
-          }))
-        }
+        type: 'ADD_NEWS',
+        payload: arr
       })
       localStorage.setItem(
         'news',
-        JSON.stringify({ favorites, page, query, view })
+        JSON.stringify({ favorites, query, view, news: [] })
       )
     }
-  }, [data, isLoading, favorites, page, query, view, dispatch])
+  }, [data, isLoading, favorites, query, view, dispatch])
 
   const { scrollDirection, scrolledToTop } = useScrollDirection({
     initialDirection: 'up'
@@ -58,12 +69,12 @@ const Main = () => {
               active={state.view === view}
               disabled={!!(view === 'my favs' && state.favorites.length <= 0)}
               onClick={() => {
+                dispatch({ type: 'CHANGE_VIEW', payload: view })
                 window.scrollTo({
                   top: 0,
                   left: 0,
                   behavior: 'smooth'
                 })
-                dispatch({ type: 'CHANGE_VIEW', payload: view })
               }}
             >
               {view}
@@ -82,53 +93,51 @@ const Main = () => {
           scrolledToTop={scrolledToTop}
         />
 
-        <List dataCy="hits">
-          {state.view === 'all' && (
-            <>
-              {isLoading || isFetching
-                ? skeletonCards.map((item) => (
-                    <div key={item} data-cy={`skeleton-${item}`}>
-                      <Skeleton height="90px" />
-                    </div>
-                ))
-                : state.news?.hits?.map((hit) => (
-                    <Card
-                      key={hit.objectID}
-                      data={hit}
-                      dataCy={`hit-${hit.objectID}`}
-                    />
-                ))}
-            </>
-          )}
+        {state.view === 'all' && (
+          <List dataCy="hits">
+            {state.news?.map((news) =>
+              news.hits.map((hit) => (
+                <Card
+                  key={hit.objectID}
+                  data={hit}
+                  dataCy={`hit-${hit.objectID}`}
+                />
+              ))
+            )}
 
-          {state.view === 'my favs' && (
-            <>
-              {state.favorites.length > 0
-                ? (
-                    state.favorites?.map((hit) => (
-                  <Card
-                    key={hit.objectID}
-                    data={hit}
-                    dataCy={`hit-${hit.objectID}`}
-                  />
-                    ))
-                  )
-                : (
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)'
-                  }}
-                >
-                  Add Favorites...
+            {(isLoading || isFetching) &&
+              skeletonCards.map((item) => (
+                <div key={item} data-cy={`skeleton-${item}`}>
+                  <Skeleton height="90px" />
                 </div>
-                  )}
-            </>
-          )}
-        </List>
-        <Pagination lastPage={data?.nbPages ?? 0} />
+              ))}
+          </List>
+        )}
+
+        {state.view === 'all' && (
+          <div style={{ visibility: 'hidden' }} ref={loadMoreRef}>
+            loading more...
+          </div>
+        )}
+
+        {state.view === 'my favs' && state.favorites.length > 0 && (
+          <Pagination
+            data={state.favorites}
+            RenderComponent={(paginatedData: Hit) => (
+              <Card
+                key={paginatedData.objectID}
+                data={paginatedData}
+                dataCy={`fav-${paginatedData.objectID}`}
+              />
+            )}
+            pageLimit={
+              state.favorites.length > 40
+                ? 4
+                : Math.ceil(state.favorites.length / 10)
+            }
+            dataLimit={10}
+          />
+        )}
       </StyledContainer>
     </StyledMain>
   )

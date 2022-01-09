@@ -26,6 +26,7 @@ module.exports = {
   rules: {
     'no-console': 'error',
     quotes: ['error', 'single'],
+    'no-undef': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'node/prefer-global/process': ['error', 'always'],

@@ -152,6 +152,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Deploy storybook with chromatic](https://storybook.js.org/tutorials/intro-to-storybook/react/en/deploy/)
 - [Cypress tutorials](https://docs.cypress.io/examples/examples/tutorials)
 - [Continuous integrations with cypress](https://docs.cypress.io/guides/continuous-integration/ci-provider-examples)
+- [Infinite Queries](https://react-query.tanstack.com/guides/infinite-queries)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
 
 ## Contact

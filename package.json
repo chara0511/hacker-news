@@ -1,6 +1,6 @@
 {
   "name": "hacker-news",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "engines": {
     "node": ">=14.18.0"
   },

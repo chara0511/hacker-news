@@ -1,6 +1,14 @@
 import * as React from 'react'
 
-import { Badge, Button, Skeleton, Spinner, Text } from '../../Atoms'
+import {
+  Badge,
+  Button,
+  Icon,
+  IconButton,
+  Skeleton,
+  Spinner,
+  Text
+} from '../../Atoms'
 import { Card, DropDown, Flex, List, Pagination } from '../../Molecules'
 import useNews from '../../../hooks/useNews'
 import useNewsState from '../../../hooks/useNewsState'
@@ -101,42 +109,63 @@ const Main = () => {
         />
 
         {state.view === 'all' && (
-          <List dataCy="hits">
-            {(!isLoading || !isFetching) &&
-              state.news?.map((news) =>
-                news.hits.map((hit) => (
-                  <Card
-                    key={hit.objectID}
-                    data={hit}
-                    dataCy={`hit-${hit.objectID}`}
-                  />
-                ))
-              )}
-            {(isLoading || isFetching) &&
-              !isFetchingNextPage &&
-              skeletonCards.map((item) => (
-                <div key={item} data-cy={`skeleton-${item}`}>
-                  <Skeleton height="90px" />
-                </div>
-              ))}
-          </List>
-        )}
+          <>
+            <List dataCy="hits">
+              {(!isLoading || !isFetching) &&
+                state.news?.map((news) =>
+                  news.hits.map((hit) => (
+                    <Card
+                      key={hit.objectID}
+                      data={hit}
+                      dataCy={`hit-${hit.objectID}`}
+                    />
+                  ))
+                )}
+              {(isLoading || isFetching) &&
+                !isFetchingNextPage &&
+                skeletonCards.map((item) => (
+                  <div key={item} data-cy={`skeleton-${item}`}>
+                    <Skeleton height="90px" />
+                  </div>
+                ))}
+            </List>
 
-        {state.view === 'all' && (
-          <div ref={loadMoreRef}>
-            <Flex justifyContent="center" columnGap="4px">
-              {isFetchingNextPage
-                ? (
-                <>
-                  <Text size="sm">Loading more</Text>
-                  <Spinner />
-                </>
-                  )
-                : (
-                    !hasNextPage && <Text size="sm">Nothing more to load</Text>
-                  )}
-            </Flex>
-          </div>
+            {(scrollDirection === 'down' || scrollDirection === 'up') &&
+              !scrolledToTop && (
+                <div
+                  style={{ position: 'fixed', zIndex: 99, bottom: 0, right: 0 }}
+                >
+                  <IconButton
+                    active
+                    shape="circle"
+                    onClick={() =>
+                      window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'smooth'
+                      })
+                    }
+                  >
+                    <Icon name="arrowUp" />
+                  </IconButton>
+                </div>
+            )}
+
+            <div ref={loadMoreRef}>
+              <Flex justifyContent="center" columnGap="4px">
+                {isFetchingNextPage
+                  ? (
+                  <>
+                    <Text size="sm">Loading more</Text>
+                    <Spinner />
+                  </>
+                    )
+                  : (
+                      !hasNextPage && <Text size="sm">Nothing more to load</Text>
+                    )}
+              </Flex>
+            </div>
+          </>
         )}
 
         {state.view === 'my favs' && state.favorites.length > 0 && (

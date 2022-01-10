@@ -9,6 +9,7 @@ export type Font = 'primary' | 'secondary';
 export type IconName =
   | 'angular'
   | 'arrowDown'
+  | 'arrowUp'
   | 'reactjs'
   | 'vuejs'
   | 'favoriteFilled'

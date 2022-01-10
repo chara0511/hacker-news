@@ -19,6 +19,9 @@ export const StyledIconSquareButton = styled.button<IconButtonProps>`
     active ?? false ? 'var(--white)' : 'var(--zambezi)'};
   transition: var(--transition);
   user-select: 'none';
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:disabled {
     opacity: 0.4;

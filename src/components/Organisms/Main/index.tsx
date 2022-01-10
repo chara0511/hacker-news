@@ -16,7 +16,7 @@ import useNewsUpdater from '../../../hooks/useNewsUpdater'
 import useScrollDirection from '../../../hooks/useScrollDirection'
 import useIntersectionObserver from '../../../hooks/useIntersectionObserver'
 import { defaultItems, skeletonCards, views } from '../../../utils/constants'
-import { StyledContainer, StyledFilterFlex, StyledMain } from './styles'
+import { StyledArrowBtnWrapper, StyledContainer, StyledFilterFlex, StyledMain } from './styles'
 import type { Hit } from '../../../types'
 
 const Main = () => {
@@ -132,9 +132,7 @@ const Main = () => {
 
             {(scrollDirection === 'down' || scrollDirection === 'up') &&
               !scrolledToTop && (
-                <div
-                  style={{ position: 'fixed', zIndex: 99, bottom: 0, right: 0 }}
-                >
+                <StyledArrowBtnWrapper>
                   <IconButton
                     active
                     shape="circle"
@@ -148,7 +146,7 @@ const Main = () => {
                   >
                     <Icon name="arrowUp" />
                   </IconButton>
-                </div>
+                </StyledArrowBtnWrapper>
             )}
 
             <div ref={loadMoreRef}>

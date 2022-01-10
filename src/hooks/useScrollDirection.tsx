@@ -1,4 +1,3 @@
-
 import * as React from 'react'
 import { scrollDown, scrollUp } from '../utils/constants'
 import type { Direction } from '../types'
@@ -14,7 +13,8 @@ const useScrollDirection = ({
   thresholdPixels,
   off
 }: Params) => {
-  const [scrollDirection, setScrollDirection] = React.useState(initialDirection)
+  const [scrollDirection, setScrollDirection] =
+    React.useState(initialDirection)
   const [scrolledToTop, setScrolledToTop] = React.useState(true)
 
   React.useEffect(() => {
@@ -53,9 +53,9 @@ const useScrollDirection = ({
     return () => window.removeEventListener('scroll', onScroll)
   }, [initialDirection, thresholdPixels, off])
 
-  const handleScroll = () => {
+  const handleScroll = React.useCallback(() => {
     setScrolledToTop(window.pageYOffset < 50)
-  }
+  }, [])
 
   React.useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -63,7 +63,7 @@ const useScrollDirection = ({
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [handleScroll])
 
   return { scrollDirection, scrolledToTop }
 }

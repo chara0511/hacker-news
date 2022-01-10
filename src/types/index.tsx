@@ -9,6 +9,7 @@ export type Font = 'primary' | 'secondary';
 export type IconName =
   | 'angular'
   | 'arrowDown'
+  | 'arrowUp'
   | 'reactjs'
   | 'vuejs'
   | 'favoriteFilled'
@@ -19,7 +20,7 @@ export type IconName =
   | 'error';
 
 // Hook types
-export type Direction = 'up' | 'down'
+export type Direction = 'up' | 'down';
 
 // Api types
 export interface Hit {
@@ -87,7 +88,7 @@ export type View = 'all' | 'my favs';
 export interface State {
   query: string;
   page: number;
-  news: News | Record<string, never>;
+  news: News[] ;
   favorites: Hit[];
   view: View;
 }
@@ -95,7 +96,7 @@ export interface State {
 export type Action =
   | { type: 'GET_QUERY'; payload: State['query'] }
   | { type: 'GET_PAGE'; payload: State['page'] }
-  | { type: 'GET_NEWS'; payload: News }
+  | { type: 'ADD_NEWS'; payload: News[] }
   | { type: 'ADD_FAVORITE'; payload: Hit }
   | { type: 'REMOVE_FAVORITE'; payload: Hit['objectID'] }
   | { type: 'CHANGE_VIEW'; payload: View };

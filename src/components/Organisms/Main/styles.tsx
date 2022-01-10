@@ -47,7 +47,7 @@ export const StyledFilterFlex = styled(StyledFlex)<StyledFilterFlexProps>`
   }
 
   @media (prefers-reduced-motion: no-preference) {
-     ${({ scrollDirection, scrolledToTop }) =>
+    ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'up' &&
       !scrolledToTop &&
       css`
@@ -61,7 +61,7 @@ export const StyledFilterFlex = styled(StyledFlex)<StyledFilterFlexProps>`
         border: 1px solid var(--gray-84);
       `}
 
-     ${({ scrollDirection, scrolledToTop }) =>
+    ${({ scrollDirection, scrolledToTop }) =>
       scrollDirection === 'down' &&
       !scrolledToTop &&
       css`
@@ -74,5 +74,17 @@ export const StyledFilterFlex = styled(StyledFlex)<StyledFilterFlexProps>`
         box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
         border: 1px solid var(--gray-84);
       `}
+  }
+`
+
+export const StyledArrowBtnWrapper = styled.div`
+  position: fixed;
+  z-index: 99;
+  bottom: 16px;
+  right: 16px;
+
+  @media (max-width: 480px) {
+    bottom: 0px;
+    right: 0px;
   }
 `

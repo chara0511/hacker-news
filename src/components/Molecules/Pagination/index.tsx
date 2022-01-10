@@ -1,125 +1,94 @@
 import * as React from 'react'
 
 import { IconButton } from '../../Atoms'
-import { Flex } from '..'
-import useNewsState from '../../../hooks/useNewsState'
-import useNewsUpdater from '../../../hooks/useNewsUpdater'
+import { Flex, List } from '..'
+import type { Hit } from '../../../types'
 
 interface PaginationProps {
-  lastPage: number;
+  data: Hit[];
+  RenderComponent: (data: Hit) => JSX.Element;
+  pageLimit: number;
+  dataLimit: number;
 }
 
-const Pagination = ({ lastPage }: PaginationProps) => {
-  const [index, setIndex] = React.useState(0)
+const Pagination = ({
+  data,
+  RenderComponent,
+  pageLimit,
+  dataLimit
+}: PaginationProps) => {
+  const [pages] = React.useState(Math.ceil(data.length / dataLimit))
+  const [currentPage, setCurrentPage] = React.useState(1)
 
-  const { state } = useNewsState()
-  const { dispatch } = useNewsUpdater()
+  const goToNextPage = React.useCallback(() => {
+    setCurrentPage((page) => page + 1)
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }, [])
 
-  React.useEffect(() => {
-    setIndex(state.page)
-  }, [state.page])
+  const goToPreviousPage = React.useCallback(() => {
+    setCurrentPage((page) => page - 1)
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }, [])
+
+  const changePage = React.useCallback(
+    (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      const { textContent } = e?.target as HTMLButtonElement
+      const pageNumber = Number(textContent)
+      setCurrentPage(pageNumber)
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
+    },
+    []
+  )
+
+  const getPaginatedData = React.useCallback(() => {
+    const startIndex = currentPage * dataLimit - dataLimit
+    const endIndex = startIndex + dataLimit
+    return data.slice(startIndex, endIndex)
+  }, [currentPage, data, dataLimit])
+
+  const getPaginationGroup = React.useCallback(() => {
+    const start = Math.floor((currentPage - 1) / pageLimit) * pageLimit
+    return new Array(pageLimit).fill(NaN).map((_, idx) => start + idx + 1)
+  }, [currentPage, pageLimit])
 
   return (
-    <Flex justifyContent="center">
-      <IconButton
-        disabled={state.page === 0}
-        onClick={() => {
-          if (state.view !== 'all') {
-            dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
-          }
-          dispatch({ type: 'GET_PAGE', payload: 0 })
-        }}
-      >
-        {'<<'}
-      </IconButton>
-      <IconButton
-        disabled={state.page === 0}
-        onClick={() => {
-          if (state.view !== 'all') {
-            dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
-          }
-          dispatch({ type: 'GET_PAGE', payload: state.page - 1 })
-        }}
-      >
-        {'<'}
-      </IconButton>
-
-      {state.page - 1 >= 0 && (
-        <IconButton
-          active={state.page - 1 === index}
-          onClick={() => {
-            if (state.view !== 'all') {
-              dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
-            }
-            dispatch({ type: 'GET_PAGE', payload: state.page - 1 })
-          }}
-        >
-          {state.page - 1}
+    <>
+      <List>{getPaginatedData().map(RenderComponent)}</List>
+      <Flex justifyContent="center">
+        <IconButton disabled={currentPage === 1} onClick={goToPreviousPage}>
+          {'<'}
         </IconButton>
-      )}
 
-      <IconButton
-        active={state.page === index}
-        onClick={() => {
-          if (state.view !== 'all') {
-            dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
-          }
-          dispatch({ type: 'GET_PAGE', payload: state.page })
-        }}
-      >
-        {state.page}
-      </IconButton>
+        {getPaginationGroup().map(
+          (item, index) =>
+            item <= pages && (
+              <IconButton
+                active={currentPage === item}
+                key={index}
+                onClick={changePage}
+              >
+                <span>{item}</span>
+              </IconButton>
+            )
+        )}
 
-      {state.page <= lastPage - 1 && (
-        <IconButton
-          active={state.page + 1 === index}
-          onClick={() => {
-            if (state.view !== 'all') {
-              dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
-            }
-            dispatch({ type: 'GET_PAGE', payload: state.page + 1 })
-          }}
-        >
-          {state.page + 1}
+        <IconButton disabled={currentPage === pages} onClick={goToNextPage}>
+          {'>'}
         </IconButton>
-      )}
-
-      {state.page === 0 && (
-        <IconButton
-          onClick={() => {
-            if (state.view !== 'all') {
-              dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
-            }
-            dispatch({ type: 'GET_PAGE', payload: state.page + 2 })
-          }}
-        >
-          {state.page + 2}
-        </IconButton>
-      )}
-
-      <IconButton
-        disabled={state.page === lastPage || lastPage === 0}
-        onClick={() => {
-          if (state.view !== 'all') {
-            dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
-          }
-          dispatch({ type: 'GET_PAGE', payload: state.page + 1 })
-        }}
-      >
-        {'>'}
-      </IconButton>
-      <IconButton
-        disabled={state.page === lastPage || lastPage === 0}
-        onClick={() => {
-          if (state.view !== 'all') {
-            dispatch({ type: 'CHANGE_VIEW', payload: 'all' })
-          }
-          dispatch({ type: 'GET_PAGE', payload: lastPage })
-        }}
-      >
-        {'>>'}
-      </IconButton>
-    </Flex>
+      </Flex>
+    </>
   )
 }
 

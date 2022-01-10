@@ -7,7 +7,7 @@ const initialState: State = JSON.parse(
   localStorage.getItem('news')!
 ) ?? {
   query: 'angular',
-  news: {},
+  news: [],
   favorites: [],
   page: 0,
   view: 'all'
@@ -35,7 +35,7 @@ const newsReducer = (state: State, action: Action): State => {
         page: action.payload
       }
 
-    case 'GET_NEWS':
+    case 'ADD_NEWS':
       return {
         ...state,
         news: action.payload

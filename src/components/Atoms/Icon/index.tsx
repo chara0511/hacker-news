@@ -3,6 +3,7 @@ import * as React from 'react'
 import {
   AngularIcon,
   ArrowDownIcon,
+  ArrowUpIcon,
   FavoriteFilledIcon,
   FavoriteOutlinedIcon,
   MoonIcon,
@@ -33,6 +34,9 @@ const Icon = ({ name = 'error', width, heigth }: IconProps) => {
 
     case 'arrowDown':
       return <ArrowDownIcon width={width} height={heigth} />
+
+    case 'arrowUp':
+      return <ArrowUpIcon width={width} height={heigth} />
 
     case 'reactjs':
       return <ReactjsIcon width={width} height={heigth} />

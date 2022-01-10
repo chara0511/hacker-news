@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { Badge, Button, Skeleton } from '../../Atoms'
-import { Card, DropDown, List, Pagination } from '../../Molecules'
+import { Badge, Button, Skeleton, Spinner, Text } from '../../Atoms'
+import { Card, DropDown, Flex, List, Pagination } from '../../Molecules'
 import useNews from '../../../hooks/useNews'
 import useNewsState from '../../../hooks/useNewsState'
 import useNewsUpdater from '../../../hooks/useNewsUpdater'
@@ -18,7 +18,14 @@ const Main = () => {
 
   const loadMoreRef = React.useRef<HTMLDivElement>(null)
 
-  const { data, isLoading, isFetching, fetchNextPage, hasNextPage } = useNews({
+  const {
+    data,
+    isLoading,
+    isFetching,
+    isFetchingNextPage,
+    fetchNextPage,
+    hasNextPage
+  } = useNews({
     query
   })
 
@@ -95,17 +102,18 @@ const Main = () => {
 
         {state.view === 'all' && (
           <List dataCy="hits">
-            {state.news?.map((news) =>
-              news.hits.map((hit) => (
-                <Card
-                  key={hit.objectID}
-                  data={hit}
-                  dataCy={`hit-${hit.objectID}`}
-                />
-              ))
-            )}
-
+            {(!isLoading || !isFetching) &&
+              state.news?.map((news) =>
+                news.hits.map((hit) => (
+                  <Card
+                    key={hit.objectID}
+                    data={hit}
+                    dataCy={`hit-${hit.objectID}`}
+                  />
+                ))
+              )}
             {(isLoading || isFetching) &&
+              !isFetchingNextPage &&
               skeletonCards.map((item) => (
                 <div key={item} data-cy={`skeleton-${item}`}>
                   <Skeleton height="90px" />
@@ -115,8 +123,19 @@ const Main = () => {
         )}
 
         {state.view === 'all' && (
-          <div style={{ visibility: 'hidden' }} ref={loadMoreRef}>
-            loading more...
+          <div ref={loadMoreRef}>
+            <Flex justifyContent="center" columnGap="4px">
+              {isFetchingNextPage
+                ? (
+                <>
+                  <Text size="sm">Loading more</Text>
+                  <Spinner />
+                </>
+                  )
+                : (
+                    !hasNextPage && <Text size="sm">Nothing more to load</Text>
+                  )}
+            </Flex>
           </div>
         )}
 

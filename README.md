@@ -13,7 +13,7 @@
     <img src="https://img.shields.io/endpoint?logo=cypress&url=https://dashboard.cypress.io/badge/detailed/kjcjo4?logo=cypress" />
   </a>
 
-  <a href="https://61cafd37947d3e003a8de1dc-dajoisnbhx.chromatic.com/?path=/story/atoms-button--basic">
+  <a href="https://61cafd37947d3e003a8de1dc-zgjamoxsyc.chromatic.com/?path=/story/atoms-badge--primary">
     <img src="https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white" />
   </a>
 

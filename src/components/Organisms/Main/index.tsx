@@ -117,7 +117,7 @@ const Main = () => {
                     <Card
                       key={hit.objectID}
                       data={hit}
-                      dataCy={`hit-${hit.objectID}`}
+                      dataCy='hit'
                     />
                   ))
                 )}
